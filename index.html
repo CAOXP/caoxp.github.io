@@ -7,15 +7,37 @@
     <meta name="keywords" content="Xiangpeng CAO">
     <meta name="description" content="Xiangpeng CAO">
     <link href="images/style.css" rel="stylesheet" type="text/css">
+    <style>
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #666;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .back-to-top:hover {
+            opacity: 1;
+        }
+        .back-to-top.show {
+            opacity: 0.7;
+            visibility: visible;
+        }
+    </style>
 </head>
 <body>
+    <div id="top"></div>
     <div class="container">
         <header>
             <table class="logo-table">
                 <tr>
-                    <td><img src="images/szu.jpg" alt="Shenzhen University" height="100"></td>
-                    <td><img src="images/szubanner.jpg" alt="SZU" height="100"></td>
-                    <td><img src="images/cctelogo.png" alt="土木与交通工程学院" height="100"></td>
+                    <td><img src="images/szu.jpg" alt="Shenzhen University" height="50"></td>
+                    <td><img src="images/cctelogo.png" alt="土木与交通工程学院" height="50"></td>
                 </tr>
             </table>
         </header>
@@ -38,6 +60,7 @@
                     <tr><td class="menu"><a href="index.html">Home</a></td></tr>
                     <tr><td class="menu"><a href="articles.html">Articles</a></td></tr>
                     <tr><td class="menu"><a href="patents.html">Patents</a></td></tr>
+                    <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
                     <tr><td class="menu"><a href="people.html">People</a></td></tr>
                 </table>
             </nav>
@@ -63,8 +86,8 @@
                     <h1 class="articletitle">Education</h1>
                     <ul class="">
                         <li>2013-2017, Ph.D., Civil Engineering, Hong Kong University of Science and Technology</li>
-                        <li>2007-2010, M.S., Model recognition and intelligent system, Shandong University</li>
-                        <li>2003-2007, B.S., Biomedical engineering, Shandong University</li>
+                        <li>2007-2010, M.S., Pattern Recognition and Intelligent Systems, Shandong University</li>
+                        <li>2003-2007, B.S., Biomedical Engineering, Shandong University</li>
                     </ul>
                 </section>
                 <section>
@@ -79,8 +102,24 @@
         </div>
 
         <footer>
-            <p class="foot">Desinged with Windsurf/Cursor &copy; CAOXP</p>
+            <p class="foot">Designed with Windsurf/Cursor &copy; CAOXP</p>
         </footer>
     </div>
+    <a href="#top" class="back-to-top" id="backToTop">Back to Top ↑</a>
+
+    <script>
+        // 获取按钮元素
+        const backToTop = document.getElementById('backToTop');
+        
+        // 监听页面滚动
+        window.addEventListener('scroll', function() {
+            // 当页面滚动超过一个视窗高度时显示按钮
+            if (window.scrollY > window.innerHeight) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
