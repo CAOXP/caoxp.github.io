@@ -45,7 +45,7 @@ header, footer {
 }
 
 header .logo-table {
-    margin-left: 250px; /* Add margin to move the table slightly to the right */
+    margin-left: 0;    /* 移除左边距使其真正靠左 */
 }
 
 header img, footer img {
