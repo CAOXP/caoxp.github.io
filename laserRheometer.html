@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiangpeng CAO</title>
+    <meta name="keywords" content="Xiangpeng CAO">
+    <meta name="description" content="Xiangpeng CAO">
+    <link href="images/style.css" rel="stylesheet" type="text/css">
+    <style>
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #666;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .back-to-top:hover {
+            opacity: 1;
+        }
+        .back-to-top.show {
+            opacity: 0.7;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div id="top"></div>
+    <div class="container">
+        <header>
+            <table class="logo-table">
+                <tr>
+                    <td><img src="images/cctelogo.png" alt="土木与交通工程学院" height="50"></td>
+                    <td><img src="images/szu.jpg" alt="Shenzhen University" height="50"></td>
+                </tr>
+            </table>
+        </header>
+
+        <div class="main-content">
+            <nav class="sidebar">
+                <table class="nav-table">
+                    <tr align="center">
+                        <td><img src="images/cxp.png" alt="Xiangpeng CAO" width="180" ></td>
+                    </tr>
+                    <tr align="center">
+                        <td><a href="index.html">Xiangpeng CAO<BR><BR>曹香鹏</a></td>
+                    </tr>
+                    <tr>
+                        <td><hr></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr><td class="menu"><a href="index.html">Home</a></td></tr>
+                    <tr><td class="menu"><a href="articles.html">Articles</a></td></tr>
+                    <tr><td class="menu"><a href="patents.html">Patents</a></td></tr>
+                    <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
+                    <tr><td class="menu"><a href="people.html">People</a></td></tr>
+                    
+                </table>
+            </nav>
+
+            <main class="content">
+                <section>
+                    <h1 class="">Laser Rheometer 激光流变仪</h1>    
+                    <HR>     
+                    <h1 class="articletitle">Technical Principle</h1>      
+                    <div class="publication-item" >
+                        <img src="images/pubs/LOGO3.png" class="publication-image" alt="Publication 1" style="width: 100px; height: auto  ">
+                        <div class="publication-info">
+                            <strong class="publication-title">
+                                Laser-based Rheology Detection for Concrete Mixture                              
+                            </strong>
+                            <br>
+                            <p class="publication-details">
+                                <strong>Xiangpeng CAO</strong>, Hongzhi CUI                  
+                                <br><br> Innovation | 2022 | @Shenzhen University
+                            </p>
+                        </div>
+                    </div>
+                    <HR>
+                    <h1 class="articletitle">Related Publications</h1>    
+                    <div class="publication-item" >
+                        <div class="publication-info">
+                            <strong class="publication-title">
+                                Laser-based Rheology Detection for Concrete Mixture                              
+                                </strong>
+                                <br>
+                                <p class="publication-details">
+                                    <strong>Xiangpeng CAO</strong>, Hongzhi CUI                  
+                                    <br><br> Innovation | 2022 | @Shenzhen University
+                                </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <footer>
+            <p class="foot">Designed with Windsurf/Cursor &copy; CAOXP</p>
+        </footer>
+    </div>
+    <a href="#top" class="back-to-top" id="backToTop">Back to Top ↑</a>
+
+    <script>
+        // 获取按钮元素
+        const backToTop = document.getElementById('backToTop');
+        
+        // 监听页面滚动
+        window.addEventListener('scroll', function() {
+            // 当页面滚动超过一个视窗高度时显示按钮
+            if (window.scrollY > window.innerHeight) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
