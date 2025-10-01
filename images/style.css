@@ -192,6 +192,7 @@ footer p {
     transition: transform 0.3s;
 }
 
+
 .publication-item:hover .publication-image {
     transform: scale(1.1);
 }
@@ -206,6 +207,11 @@ footer p {
     color: var(--link-color);
 }
 
+.people-title {
+    font-size: 1em;
+    color: var(--text-color);
+}
+
 .publication-title a {
     text-decoration: none;
 }
@@ -218,6 +224,15 @@ footer p {
     font-size: 1em;
     color: var(--text-color);
     margin-top: 15px;
+}
+
+.people-image {
+    width: 100px; /* Increased width */
+    height: auto;
+    margin-right: 20px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
 }
 
 @media (max-width: 768px) {
