@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiangpeng CAO</title>
+    <meta name="keywords" content="Xiangpeng CAO">
+    <meta name="description" content="Xiangpeng CAO">
+    <link href="images/style.css" rel="stylesheet" type="text/css">
+    <style>
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #666;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .back-to-top:hover {
+            opacity: 1;
+        }
+        .back-to-top.show {
+            opacity: 0.7;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div id="top"></div>
+    <div class="container">
+        <header>
+            <table class="logo-table">
+                <tr>
+                    <td><img src="images/cctelogo.png" alt="土木与交通工程学院" height="50"></td>
+                    <td><img src="images/szu.jpg" alt="Shenzhen University" height="50"></td>
+                </tr>
+            </table>
+        </header>
+
+        <div class="main-content">
+            <nav class="sidebar">
+                <table class="nav-table">
+                    <tr align="center">
+                        <td><img src="images/cxp.png" alt="Xiangpeng CAO" width="180" ></td>
+                    </tr>
+                    <tr align="center">
+                        <td><a href="index.html">Xiangpeng CAO<BR><BR>曹香鹏</a></td>
+                    </tr>
+                    <tr>
+                        <td><hr></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr><td class="menu"><a href="index.html">Home</a></td></tr>
+                    <tr><td class="menu"><a href="articles.html">Articles</a></td></tr>
+                    <tr><td class="menu"><a href="patents.html">Patents</a></td></tr>
+                    <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
+                    <tr><td class="menu"><a href="people.html">People</a></td></tr>
+                    
+                </table>
+            </nav>
+
+            <main class="content">
+                <section>
+                    <h1 class="">Embodied Intelligent Construction 具身智能建造</h1>    
+                    <HR>     
+                    <h1 class="articletitle"></h1>      
+                    <div class="publication-item" >
+                        <img src="images/pubs/LOGO3.png" class="publication-image" alt="Publication 1" style="width: 100px; height: auto  ">
+                        <div class="publication-info">
+                            <strong class="publication-title">
+                                Technical Principle
+                            </strong>
+                            <br>
+                            <p class="publication-details">
+                                “具身智能建造”（Embodied Intelligent Construction）<BR>是一个融合了人工智能、机器人技术、建筑科学和认知科学的前沿交叉领域概念。
+                                    <BR>它代表着未来智能建造发展的一个重要方向。                                
+
+                                <BR><BR><strong >一、什么是“具身智能”（Embodied Intelligence）</strong  >
+                                    <BR>“具身智能”源自认知科学和人工智能领域，其核心思想是：
+
+智能不仅仅来自于大脑（或算法），也来自于身体与环境的实时交互。
+
+换句话说，一个智能体（比如人、动物或机器人）的“聪明”不仅体现在它的“大脑”（如AI算法）上，更体现在它的身体结构、感知能力、运动方式以及它如何与周围环境互动。
+
+<BR><BR><strong >二、什么是“具身智能建造”</strong>
+    <BR>将“具身智能”的理念应用到建筑和施工领域，就形成了“具身智能建造”。它指的是：
+
+利用具备感知、决策和行动能力的智能体（如建筑机器人、无人机、可穿戴设备等），通过其“身体”与建筑环境的实时交互，自主或半自主地完成建造任务。
+
+<BR><BR><strong >三、具身智能建造的关键特征</strong>
+    <BR>（1）身体与环境的耦合：<BR>
+机器人不是在虚拟空间中规划，而是在真实工地中“边看边做”，通过传感器实时感知环境变化。
+例如：砌砖机器人会根据墙体的实际位置微调动作，而不是完全依赖预设坐标。
+<BR><BR>（2）感知-行动闭环：<BR>
+智能体不断感知环境 → 做出决策 → 执行动作 → 再感知，形成一个动态闭环。
+这使得系统更具鲁棒性和适应性。
+<BR><BR>（3）多模态交互：<BR>
+智能体可能结合视觉、力觉、声音、触觉等多种感知方式，像人类一样“综合判断”。
+例如：装配机器人通过力反馈感知是否安装到位。
+<BR><BR>（4）自主性与协作性：<BR>
+单个机器人可以自主完成任务，多个机器人之间也能协同工作（如无人机运输材料，机械臂负责安装）。
+<BR><BR>（5）学习与进化能力：<BR>
+通过机器学习（尤其是强化学习），机器人可以从经验中学习，优化建造策略。
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <HR>
+                </section>
+            </main>
+        </div>
+        <footer>
+            <p class="foot">Designed with Windsurf/Cursor &copy; CAOXP</p>
+        </footer>
+    </div>
+    <a href="#top" class="back-to-top" id="backToTop">Back to Top ↑</a>
+
+    <script>
+        // 获取按钮元素
+        const backToTop = document.getElementById('backToTop');
+        
+        // 监听页面滚动
+        window.addEventListener('scroll', function() {
+            // 当页面滚动超过一个视窗高度时显示按钮
+            if (window.scrollY > window.innerHeight) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
