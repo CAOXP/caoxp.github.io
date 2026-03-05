@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Xiangpeng CAO</title>
+    <meta name="keywords" content="Xiangpeng CAO, Research">
+    <meta name="description" content="Research interests of Xiangpeng CAO">
+    <link href="images/style.css" rel="stylesheet" type="text/css">
+    <style>
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #666;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .back-to-top:hover {
+            opacity: 1;
+        }
+        .back-to-top.show {
+            opacity: 0.7;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div id="top"></div>
+    <div class="container">
+        <header>
+            <table class="logo-table">
+                <tr>
+                    <td><img src="images/cctelogo.png" alt="土木与交通工程学院" height="50"></td>
+                    <td><img src="images/szu.jpg" alt="Shenzhen University" height="50"></td>
+                </tr>
+            </table>
+        </header>
+        <div class="main-content">
+            <nav class="sidebar">
+                <table class="nav-table">
+                    <tr align="center">
+                        <td><img src="images/cxp.png" alt="Xiangpeng CAO" width="180" ></td>
+                    </tr>
+                    <tr align="center">
+                        <td><a href="index.html">Xiangpeng CAO<BR><BR>曹香鹏</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><hr></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr><td class="menu"><a href="index.html">Home</a></td></tr>
+                    <tr><td class="menu"><a href="research.html">Research</a></td></tr>
+                    <tr><td class="menu"><a href="articles.html">Articles</a></td></tr>
+                    <tr><td class="menu"><a href="patents.html">Patents</a></td></tr>
+                    <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
+                    <tr><td class="menu"><a href="people.html">People</a></td></tr>
+                </table>
+            </nav>
+
+            <main class="content">
+                <section>
+                    <h1 class="articletitle">Overview 概述</h1>
+                    <p class="articlesubtitle" style="font-weight: normal;">
+                        My research focuses on intelligent construction, with a particular emphasis on embodied intelligence in construction processes, 
+                        <br>aiming to develop innovative technologies that enhance the efficiency, safety, and sustainability of construction 
+                        <br>through advanced sensing, artificial intelligence, and robotics.
+                    </p>
+                    <p class="articlesubtitle">
+                        专注于智能建造，特别强调建造过程中的具身智能；
+                        <BR>致力于开发创新技术，通过先进的传感、人工智能和机器人技术来提高建造的效率、安全性和可持续性。
+                    </p>
+                    <br>
+                </section>
+                
+                <section>
+                    <h1 class="articletitle">Research Directions 研究方向</h1>                    
+                    <h2 class="articlesubtitle">1. Non-contact Sensing for Construction Materials 无损感知</h2>
+                    <ul class="articlesubtitle" style="font-weight: normal;">
+                        <li><strong>Non-contact Rheology Measurement:</strong> Measure the rheological properties of construction materials, such as concrete, without physical contact.
+                            <BR> This enables real-time monitoring of material performance during mixing, transportation, and placement.
+                       <br>
+                       <strong>非接触流变测量：</strong>在不与混凝土等建筑材料物理接触的情况下测量其流变特性。应用于混凝土搅拌、运输和浇筑过程中实时监测材料性能。</li>
+                       
+                    
+                        <li><strong>Visual Perception for Embodied Intelligence:</strong> Researching the use of visual technologies to achieve non-contact monitoring and control of 3D printed concrete.
+                            <br><strong>面向具身智能的视觉感知：</strong>研究利用视觉技术实现对3D打印混凝土的非接触监测和控制。</li>
+                           </ul>       
+                    <h2 class="articlesubtitle">2. Concrete 3D Printing 建筑打印</h2>
+                    <ul class="articlesubtitle" style="font-weight: normal;">
+                        <li>
+                            <strong>Reinforcement Technology:</strong> Investigating innovative methods to integrate reinforcement into 3D printed concrete structures.
+                            <br><strong>加固技术：</strong>研究将钢筋整合到3D打印混凝土结构中的创新方法。</li>
+
+                        <li>
+                            <strong>Interface Repair:</strong> Investigating innovative methods to repair interfaces in 3D printed concrete structures.
+                            <br><strong>界面修复：</strong>研究修复3D打印混凝土结构中的界面问题，提高结构的强度和稳定性。</li>
+
+                    </ul>
+                    <br>
+                </section>
+                
+                
+
+            </main>
+        </div>
+
+        <footer>
+            <p class="foot">曹香鹏 2026 Designed with AI &copy; CAOXP</p>
+        </footer>
+    </div>
+    <a href="#top" class="back-to-top" id="backToTop">Back to Top ↑</a>
+
+    <script>
+        // 获取按钮元素
+        const backToTop = document.getElementById('backToTop');
+        
+        // 监听页面滚动
+        window.addEventListener('scroll', function() {
+            // 当页面滚动超过一个视窗高度时显示按钮
+            if (window.scrollY > window.innerHeight) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
