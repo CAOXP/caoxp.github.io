@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Footprints - Xiangpeng CAO</title>
+    <meta name="keywords" content="Xiangpeng CAO, Travel, Footprints, Europe, Fiji">
+    <meta name="description" content="Personal travel footprints of Xiangpeng CAO">
+    <link href="images/style.css" rel="stylesheet" type="text/css">
+    <style>
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #666;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .back-to-top:hover {
+            opacity: 1;
+        }
+        .back-to-top.show {
+            opacity: 0.7;
+            visibility: visible;
+        }
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .tag {
+            background-color: #f0f4f8;
+            color: #2c3e50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            border: 1px solid #dce4ec;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .tag:hover {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .tag.active {
+            background-color: #2c3e50;
+            color: white;
+            border-color: #2c3e50;
+        }
+        .place-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: none; /* Hidden by default for JS filtering, or shown if all */
+        }
+        .place-section.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .place-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .place-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .photo-placeholder {
+            width: 100%;
+            height: 150px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #adb5bd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Map Styles */
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 20px 0 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #eef2f5;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .world-map {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .map-marker {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            box-shadow: 0 0 0 2px white, 0 2px 4px rgba(0,0,0,0.3);
+            transition: transform 0.2s, background-color 0.2s;
+            z-index: 10;
+        }
+        .map-marker:hover, .map-marker.active {
+            transform: translate(-50%, -50%) scale(1.3);
+            background-color: #c0392b;
+            z-index: 20;
+        }
+        .map-marker::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-8px);
+            background: rgba(44, 62, 80, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+        .map-marker:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        .marker-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background-color: rgba(231, 76, 60, 0.5);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            z-index: -1;
+        }
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="top"></div>
+    <div class="container">
+        <header>
+            <table class="logo-table">
+                <tr>
+                    <td><img src="images/cctelogo.png" alt="土木与交通工程学院" height="50"></td>
+                    <td><img src="images/szu.jpg" alt="Shenzhen University" height="50"></td>
+                </tr>
+            </table>
+        </header>
+        <div class="main-content">
+            <nav class="sidebar">
+                <table class="nav-table">
+                    <tr align="center">
+                        <td><img src="images/cxp.png" alt="Xiangpeng CAO" width="180" ></td>
+                    </tr>
+                    <tr align="center">
+                        <td><a href="index.html">Xiangpeng CAO<BR><BR>曹香鹏</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><hr></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr><td class="menu"><a href="index.html">Home</a></td></tr>
+                    <tr><td class="menu"><a href="research.html">Research</a></td></tr>
+                    <tr><td class="menu"><a href="articles.html">Articles</a></td></tr>
+                    <tr><td class="menu"><a href="patents.html">Patents</a></td></tr>
+                    <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
+                    <tr><td class="menu"><a href="people.html">People</a></td></tr>
+                    <tr><td class="menu"><a href="travel.html" style="font-weight: bold;">Footprints</a></td></tr>
+                </table>
+            </nav>
+
+            <main class="content">
+                <section>
+                    <h1 class="articletitle">Personal Footprints 个人足迹</h1>
+                    <p class="articlesubtitle">
+                        Life is a journey. Here are some of the places I've been to.
+                    </p>
+                    
+                    <!-- Tags -->
+                    <div class="tags-container" id="tagsContainer">
+                        <span class="tag active" data-filter="all">All 全部</span>
+                        <span class="tag" data-filter="europe">Europe 欧洲</span>
+                        <span class="tag" data-filter="fiji">Fiji 斐济</span>
+                        <span class="tag" data-filter="asia">Asia 亚洲</span>
+                        <span class="tag" data-filter="china">China 中国</span>
+                    </div>
+
+                    <!-- Map Section -->
+                    <div class="map-container">
+                        <!-- 请将您的世界地图保存为 images/world-map.png -->
+                        <img src="images/world-map.png" alt="World Map" class="world-map" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg'">
+                        
+                        <!-- Map Markers -->
+                        <div class="map-marker" style="top: 30%; left: 52%;" data-target="europe" title="Europe 欧洲">
+                            <span class="marker-pulse"></span>
+                        </div>
+                        <div class="map-marker" style="top: 65%; left: 92%;" data-target="fiji" title="Fiji 斐济">
+                            <span class="marker-pulse"></span>
+                        </div>
+                        <div class="map-marker" style="top: 45%; left: 75%;" data-target="asia" title="Asia 亚洲">
+                            <span class="marker-pulse"></span>
+                        </div>
+                        <div class="map-marker" style="top: 40%; left: 78%;" data-target="china" title="China 中国">
+                            <span class="marker-pulse"></span>
+                        </div>
+                    </div>
+
+                    <!-- Places Content -->
+                    <div class="places-container">
+                        <!-- Europe -->
+                        <div class="place-section show" data-category="europe">
+                            <h2 class="place-title">🌍 Europe 欧洲</h2>
+                            <p class="place-desc">Beautiful landscapes, rich history, and diverse cultures. A memorable journey across various countries in Europe.</p>
+                            <div class="photo-grid">
+                                <div class="photo-placeholder">Photo Space 1</div>
+                                <div class="photo-placeholder">Photo Space 2</div>
+                                <div class="photo-placeholder">Photo Space 3</div>
+                            </div>
+                        </div>
+
+                        <!-- Fiji -->
+                        <div class="place-section show" data-category="fiji">
+                            <h2 class="place-title">🏝️ Fiji 斐济</h2>
+                            <p class="place-desc">Pristine beaches, crystal clear waters, and the warmest smiles. A tropical paradise.</p>
+                            <div class="photo-grid">
+                                <div class="photo-placeholder">Photo Space 1</div>
+                                <div class="photo-placeholder">Photo Space 2</div>
+                            </div>
+                        </div>
+
+                        <!-- Asia -->
+                        <div class="place-section show" data-category="asia">
+                            <h2 class="place-title">🌏 Asia 亚洲</h2>
+                            <p class="place-desc">Vibrant cities, amazing food, and incredible traditions. Exploring the diverse cultures of Asia.</p>
+                            <div class="photo-grid">
+                                <div class="photo-placeholder">Photo Space 1</div>
+                                <div class="photo-placeholder">Photo Space 2</div>
+                            </div>
+                        </div>
+
+                        <!-- China -->
+                        <div class="place-section show" data-category="china">
+                            <h2 class="place-title">🇨🇳 China 中国</h2>
+                            <p class="place-desc">From historic wonders to modern metropolises. Exploring the beauty of my homeland.</p>
+                            <div class="photo-grid">
+                                <div class="photo-placeholder">Photo Space 1</div>
+                                <div class="photo-placeholder">Photo Space 2</div>
+                                <div class="photo-placeholder">Photo Space 3</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <footer>
+            <p class="foot">曹香鹏 2026 Designed with AI &copy; CAOXP</p>
+        </footer>
+    </div>
+    <a href="#top" class="back-to-top" id="backToTop">Back to Top ↑</a>
+
+    <script>
+        // Back to top functionality
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > window.innerHeight) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Tags and Markers filtering functionality
+        const tags = document.querySelectorAll('.tag');
+        const markers = document.querySelectorAll('.map-marker');
+        const sections = document.querySelectorAll('.place-section');
+
+        function filterPlaces(filter) {
+            // Update tags
+            tags.forEach(t => {
+                if (t.getAttribute('data-filter') === filter) {
+                    t.classList.add('active');
+                } else {
+                    t.classList.remove('active');
+                }
+            });
+
+            // Update markers
+            markers.forEach(m => {
+                if (filter === 'all' || m.getAttribute('data-target') === filter) {
+                    m.style.display = 'block';
+                    if (m.getAttribute('data-target') === filter) {
+                        m.classList.add('active');
+                    } else {
+                        m.classList.remove('active');
+                    }
+                } else {
+                    m.style.display = 'none';
+                    m.classList.remove('active');
+                }
+            });
+
+            // Update sections
+            sections.forEach(section => {
+                if (filter === 'all' || section.getAttribute('data-category') === filter) {
+                    section.classList.add('show');
+                } else {
+                    section.classList.remove('show');
+                }
+            });
+        }
+
+        tags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                const filter = tag.getAttribute('data-filter');
+                filterPlaces(filter);
+            });
+        });
+
+        markers.forEach(marker => {
+            marker.addEventListener('click', () => {
+                const filter = marker.getAttribute('data-target');
+                filterPlaces(filter);
+                // Optionally scroll to the section
+                const targetSection = document.querySelector(`.place-section[data-category="${filter}"]`);
+                if(targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
