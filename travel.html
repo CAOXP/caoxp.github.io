@@ -398,6 +398,8 @@
         
         echarts.registerMap('world_china', worldChinaMap);
 
+        const acquaintanceRegionColor = '#c8cdd3';
+
         const visitedRegions = [
             // Middle East
             { name: 'Yemen', itemStyle: { areaColor: '#e67e22' } },
@@ -413,12 +415,36 @@
             // Europe
             { name: 'Hungary', itemStyle: { areaColor: '#9b59b6' } },
             { name: 'Italy', itemStyle: { areaColor: '#8e44ad' } },
-            { name: 'Belgium', itemStyle: { areaColor: '#95a5a6' } },
-            { name: 'Sweden', itemStyle: { areaColor: '#7f8c8d' } },
-            { name: 'France', itemStyle: { areaColor: '#34495e' } },
+            { name: 'Belgium', itemStyle: { areaColor: '#ff2d55' } },
+            { name: 'Sweden', itemStyle: { areaColor: '#3498db' } },
+            { name: 'France', itemStyle: { areaColor: '#5b6ee1' } },
             { name: 'Denmark', itemStyle: { areaColor: '#1abc9c' } },
             // Oceania
             { name: 'Fiji', itemStyle: { areaColor: '#f1c40f' } },
+
+            // Met people from these regions
+            ...[
+                'Sri Lanka',
+                'India',
+                'Bangladesh',
+                'Ethiopia',
+                'Sudan',
+                'Saudi Arabia',
+                'Democratic Republic of the Congo',
+                'Tanzania',
+                'Greece',
+                'Turkey',
+                'Nigeria',
+                'Algeria',
+                'Norway',
+                'Zambia',
+                'Burundi',
+                'Zimbabwe',
+                'South Africa'
+            ].map(name => ({
+                name: name,
+                itemStyle: { areaColor: acquaintanceRegionColor }
+            })),
             
             // China (Full territory including Taiwan, HK, Macao, Nanhai)
             ...[
@@ -432,6 +458,23 @@
                 itemStyle: { areaColor: '#ffcccc' } // Light red
             }))
         ];
+
+        const visibleRegionNames = new Set(visitedRegions.map(region => region.name));
+        const nonInteractiveRegions = (worldChinaMap.features || [])
+            .map(feature => feature.properties && feature.properties.name)
+            .filter(name => name && !visibleRegionNames.has(name))
+            .map(name => ({
+                name: name,
+                silent: true,
+                tooltip: { show: false },
+                emphasis: {
+                    disabled: true,
+                    label: { show: false }
+                },
+                select: {
+                    disabled: true
+                }
+            }));
 
         const visitedCities = [
             // Asia & Middle East
@@ -529,6 +572,9 @@
                             }
                             return params.data.name;
                         }
+                        if (!visibleRegionNames.has(params.name)) {
+                            return null;
+                        }
                         return regionNameMap[params.name] || params.name;
                     }
                 },
@@ -556,7 +602,7 @@
                             show: false
                         }
                     },
-                    regions: visitedRegions
+                    regions: [...visitedRegions, ...nonInteractiveRegions]
                 },
                 series: [
                     {
