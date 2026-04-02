@@ -61,7 +61,7 @@ header img, footer img {
     width: 15vw; /* Sidebar width as a percentage of viewport width */
     background-color: var(--sidebar-bg-color);
     padding: 10px;
-    overflow-y: auto;
+    /* We remove height: fit-content; so it naturally stretches to flex container height */
 }
 
 .content {
