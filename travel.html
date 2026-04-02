@@ -269,29 +269,29 @@
             'Tehran, Iran 伊朗德黑兰': { image: 'images/travel/tehran.jpg', caption: 'Tehran, Iran 伊朗德黑兰' },
             'Jakarta, Indonesia 印尼雅加达': { image: 'images/travel/jakarta.jpg', caption: 'Jakarta, Indonesia 印尼雅加达' },
             'Kathmandu, Nepal 尼泊尔加德满都': { image: 'images/travel/kathmandu.jpg', caption: 'Kathmandu, Nepal 尼泊尔加德满都' },
-            'Islamabad, Pakistan 巴基斯坦伊斯兰堡': { image: 'images/travel/islamabad.jpg', caption: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡' },
+            'Islamabad, Pakistan 巴基斯坦伊斯兰堡': { image: 'images/travel/airport.jpg', caption: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡' },
             'Budapest, Hungary 匈牙利布达佩斯': { image: 'images/travel/budapest.jpg', caption: 'Budapest, Hungary 匈牙利布达佩斯' },
             'Rome, Italy 意大利罗马': { image: 'images/travel/rome.jpg', caption: 'Rome, Italy 意大利罗马' },
             'Fiji 斐济': { image: 'images/travel/fiji.jpg', caption: 'Fiji 斐济' },
             'Belgium 比利时': { image: 'images/travel/belgium.jpg', caption: 'Belgium 比利时' },
             'Thailand 泰国': { image: 'images/travel/thailand.jpg', caption: 'Thailand 泰国' },
             'Sweden 瑞典': { image: 'images/travel/sweden.jpg', caption: 'Sweden 瑞典' },
-            'Denmark 丹麦': { image: 'images/travel/denmark.jpg', caption: 'Denmark 丹麦' },
+            'Denmark 丹麦': { image: 'images/travel/kalamoska.jpg', caption: 'Denmark 丹麦' },
             'Dubai 迪拜': { image: 'images/travel/dubai.jpg', caption: 'Dubai 迪拜' },
             'Seoul, Korea 韩国首尔': { image: 'images/travel/seoul.jpg', caption: 'Seoul, Korea 韩国首尔' },
-            'HKUST 香港科技大学': { image: 'images/travel/hkust.jpg', caption: 'HKUST 香港科技大学' },
+            'HKUST 香港科技大学': { image: 'images/travel/meigonghei.jpg', caption: 'HKUST 香港科技大学' },
             'Malaysia 马来西亚': { image: 'images/travel/malaysia.jpg', caption: 'Malaysia 马来西亚' },
-            'France 法国': { image: 'images/travel/france.jpg', caption: 'France 法国' },
+            'France 法国': { image: 'images/travel/kalamoska.jpg', caption: 'France 法国' },
             
-            'Shanghai 上海': { image: 'images/travel/shanghai.jpg', caption: 'Shanghai 上海' },
-            'Lanzhou 兰州': { image: 'images/travel/lanzhou.jpg', caption: 'Lanzhou 兰州' },
-            'Qinghai 青海': { image: 'images/travel/qinghai.jpg', caption: 'Qinghai 青海' },
-            'Beijing 北京': { image: 'images/travel/beijing.jpg', caption: 'Beijing 北京' },
-            'Nanjing 南京': { image: 'images/travel/nanjing.jpg', caption: 'Nanjing 南京' },
+            'Shanghai 上海': { image: 'images/travel/meigonghei.jpg', caption: 'Shanghai 上海' },
+            'Lanzhou 兰州': { image: 'images/travel/kalamoska.jpg', caption: 'Lanzhou 兰州' },
+            'Qinghai 青海': { image: 'images/travel/meigonghei.jpg', caption: 'Qinghai 青海' },
+            'Beijing 北京': { image: 'images/travel/airport.jpg', caption: 'Beijing 北京' },
+            'Nanjing 南京': { image: 'images/travel/meigonghei.jpg', caption: 'Nanjing 南京' },
             'Harbin 哈尔滨': { image: 'images/travel/harbin.jpg', caption: 'Harbin 哈尔滨' },
-            'Nanning, Guangxi 广西南宁': { image: 'images/travel/nanning.jpg', caption: 'Nanning, Guangxi 广西南宁' },
-            'Yunnan 云南': { image: 'images/travel/yunnan.jpg', caption: 'Yunnan 云南' },
-            'Jinan 济南': { image: 'images/travel/jinan.jpg', caption: 'Jinan 济南' }
+            'Nanning, Guangxi 广西南宁': { image: 'images/travel/kalamoska.jpg', caption: 'Nanning, Guangxi 广西南宁' },
+            'Yunnan 云南': { image: 'images/travel/meigonghei.jpg', caption: 'Yunnan 云南' },
+            'Jinan 济南': { image: 'images/travel/airport.jpg', caption: 'Jinan 济南' }
         };
 
         function openPhotoPopup(photoKey) {
@@ -388,8 +388,24 @@
             return {
                 tooltip: {
                     trigger: 'item',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    borderColor: '#ccc',
+                    borderWidth: 1,
+                    padding: 10,
+                    textStyle: {
+                        color: '#333'
+                    },
                     formatter: function (params) {
                         if (params.seriesType === 'effectScatter') {
+                            const photo = photoData[params.data.name];
+                            if (photo) {
+                                return `
+                                    <div style="text-align: center; max-width: 200px;">
+                                        <div style="font-weight: bold; margin-bottom: 8px;">${params.data.name}</div>
+                                        <img src="${photo.image}" style="max-width: 100%; max-height: 150px; border-radius: 4px; object-fit: cover;">
+                                    </div>
+                                `;
+                            }
                             return params.data.name;
                         }
                         return params.name;
