@@ -101,77 +101,80 @@
             border-radius: 4px;
             font-size: 14px;
         }
-
-        /* Map Styles */
-        .map-container {
+        
+        /* Photo Popup Styles */
+        .photo-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .photo-popup.active {
+            display: flex;
+        }
+        
+        .photo-popup-content {
+            max-width: 90%;
+            max-height: 90%;
             position: relative;
-            width: 100%;
+        }
+        
+        .photo-popup img {
             max-width: 100%;
-            margin: 20px 0 40px;
+            max-height: 80vh;
+            border-radius: 8px;
+        }
+        
+        .photo-popup-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .photo-popup-caption {
+            color: white;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: calc(100vh - 120px);
+            min-height: 600px;
             border-radius: 8px;
             overflow: hidden;
+            background: transparent;
+            box-shadow: none;
+            margin: 20px auto;
+        }
+
+        #echarts-map {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
             background: #eef2f5;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .world-map {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-        .map-marker {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background-color: #e74c3c;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            box-shadow: 0 0 0 2px white, 0 2px 4px rgba(0,0,0,0.3);
-            transition: transform 0.2s, background-color 0.2s;
-            z-index: 10;
-        }
-        .map-marker:hover, .map-marker.active {
-            transform: translate(-50%, -50%) scale(1.3);
-            background-color: #c0392b;
-            z-index: 20;
-        }
-        .map-marker::after {
-            content: attr(title);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-8px);
-            background: rgba(44, 62, 80, 0.9);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s;
-            pointer-events: none;
-        }
-        .map-marker:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-        .marker-pulse {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            background-color: rgba(231, 76, 60, 0.5);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-            z-index: -1;
-        }
-        @keyframes pulse {
-            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+
+        /* Responsive styles */
+        @media (max-width: 900px) {
+            .map-container {
+                height: 500px;
+                min-height: auto;
+            }
         }
     </style>
 </head>
@@ -213,83 +216,14 @@
 
             <main class="content">
                 <section>
-                    <h1 class="articletitle">Personal Footprints 个人足迹</h1>
+                    <h1 class="articletitle">Travel Footprints 我的足迹</h1>
                     <p class="articlesubtitle">
-                        Life is a journey. Here are some of the places I've been to.
+                        Life is a journey. Photos that I have taken.
                     </p>
                     
-                    <!-- Tags -->
-                    <div class="tags-container" id="tagsContainer">
-                        <span class="tag active" data-filter="all">All 全部</span>
-                        <span class="tag" data-filter="europe">Europe 欧洲</span>
-                        <span class="tag" data-filter="fiji">Fiji 斐济</span>
-                        <span class="tag" data-filter="asia">Asia 亚洲</span>
-                        <span class="tag" data-filter="china">China 中国</span>
-                    </div>
-
                     <!-- Map Section -->
                     <div class="map-container">
-                        <!-- 请将您的世界地图保存为 images/world-map.png -->
-                        <img src="images/world-map.png" alt="World Map" class="world-map" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg'">
-                        
-                        <!-- Map Markers -->
-                        <div class="map-marker" style="top: 30%; left: 52%;" data-target="europe" title="Europe 欧洲">
-                            <span class="marker-pulse"></span>
-                        </div>
-                        <div class="map-marker" style="top: 65%; left: 92%;" data-target="fiji" title="Fiji 斐济">
-                            <span class="marker-pulse"></span>
-                        </div>
-                        <div class="map-marker" style="top: 45%; left: 75%;" data-target="asia" title="Asia 亚洲">
-                            <span class="marker-pulse"></span>
-                        </div>
-                        <div class="map-marker" style="top: 40%; left: 78%;" data-target="china" title="China 中国">
-                            <span class="marker-pulse"></span>
-                        </div>
-                    </div>
-
-                    <!-- Places Content -->
-                    <div class="places-container">
-                        <!-- Europe -->
-                        <div class="place-section show" data-category="europe">
-                            <h2 class="place-title">🌍 Europe 欧洲</h2>
-                            <p class="place-desc">Beautiful landscapes, rich history, and diverse cultures. A memorable journey across various countries in Europe.</p>
-                            <div class="photo-grid">
-                                <div class="photo-placeholder">Photo Space 1</div>
-                                <div class="photo-placeholder">Photo Space 2</div>
-                                <div class="photo-placeholder">Photo Space 3</div>
-                            </div>
-                        </div>
-
-                        <!-- Fiji -->
-                        <div class="place-section show" data-category="fiji">
-                            <h2 class="place-title">🏝️ Fiji 斐济</h2>
-                            <p class="place-desc">Pristine beaches, crystal clear waters, and the warmest smiles. A tropical paradise.</p>
-                            <div class="photo-grid">
-                                <div class="photo-placeholder">Photo Space 1</div>
-                                <div class="photo-placeholder">Photo Space 2</div>
-                            </div>
-                        </div>
-
-                        <!-- Asia -->
-                        <div class="place-section show" data-category="asia">
-                            <h2 class="place-title">🌏 Asia 亚洲</h2>
-                            <p class="place-desc">Vibrant cities, amazing food, and incredible traditions. Exploring the diverse cultures of Asia.</p>
-                            <div class="photo-grid">
-                                <div class="photo-placeholder">Photo Space 1</div>
-                                <div class="photo-placeholder">Photo Space 2</div>
-                            </div>
-                        </div>
-
-                        <!-- China -->
-                        <div class="place-section show" data-category="china">
-                            <h2 class="place-title">🇨🇳 China 中国</h2>
-                            <p class="place-desc">From historic wonders to modern metropolises. Exploring the beauty of my homeland.</p>
-                            <div class="photo-grid">
-                                <div class="photo-placeholder">Photo Space 1</div>
-                                <div class="photo-placeholder">Photo Space 2</div>
-                                <div class="photo-placeholder">Photo Space 3</div>
-                            </div>
-                        </div>
+                        <div id="echarts-map"></div>
                     </div>
                 </section>
             </main>
@@ -300,7 +234,18 @@
         </footer>
     </div>
     <a href="#top" class="back-to-top" id="backToTop">Back to Top ↑</a>
+    
+    <!-- Photo Popup -->
+    <div class="photo-popup" id="photoPopup">
+        <div class="photo-popup-content">
+            <button class="photo-popup-close" id="closePopup">&times;</button>
+            <img src="" alt="" id="popupImage">
+            <div class="photo-popup-caption" id="popupCaption"></div>
+        </div>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <script src="js/world_china.js"></script>
     <script>
         // Back to top functionality
         const backToTop = document.getElementById('backToTop');
@@ -312,63 +257,201 @@
             }
         });
 
-        // Tags and Markers filtering functionality
-        const tags = document.querySelectorAll('.tag');
-        const markers = document.querySelectorAll('.map-marker');
-        const sections = document.querySelectorAll('.place-section');
+        // Photo Popup functionality
+        const photoPopup = document.getElementById('photoPopup');
+        const popupImage = document.getElementById('popupImage');
+        const popupCaption = document.getElementById('popupCaption');
+        const closePopup = document.getElementById('closePopup');
 
-        function filterPlaces(filter) {
-            // Update tags
-            tags.forEach(t => {
-                if (t.getAttribute('data-filter') === filter) {
-                    t.classList.add('active');
-                } else {
-                    t.classList.remove('active');
-                }
-            });
+        // Photo data for each location
+        const photoData = {
+            'Yemen 也门': { image: 'images/travel/yemen.jpg', caption: 'Yemen 也门' },
+            'Tehran, Iran 伊朗德黑兰': { image: 'images/travel/tehran.jpg', caption: 'Tehran, Iran 伊朗德黑兰' },
+            'Jakarta, Indonesia 印尼雅加达': { image: 'images/travel/jakarta.jpg', caption: 'Jakarta, Indonesia 印尼雅加达' },
+            'Kathmandu, Nepal 尼泊尔加德满都': { image: 'images/travel/kathmandu.jpg', caption: 'Kathmandu, Nepal 尼泊尔加德满都' },
+            'Islamabad, Pakistan 巴基斯坦伊斯兰堡': { image: 'images/travel/islamabad.jpg', caption: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡' },
+            'Budapest, Hungary 匈牙利布达佩斯': { image: 'images/travel/budapest.jpg', caption: 'Budapest, Hungary 匈牙利布达佩斯' },
+            'Rome, Italy 意大利罗马': { image: 'images/travel/rome.jpg', caption: 'Rome, Italy 意大利罗马' },
+            'Fiji 斐济': { image: 'images/travel/fiji.jpg', caption: 'Fiji 斐济' },
+            'Belgium 比利时': { image: 'images/travel/belgium.jpg', caption: 'Belgium 比利时' },
+            'Thailand 泰国': { image: 'images/travel/thailand.jpg', caption: 'Thailand 泰国' },
+            'Sweden 瑞典': { image: 'images/travel/sweden.jpg', caption: 'Sweden 瑞典' },
+            'Denmark 丹麦': { image: 'images/travel/denmark.jpg', caption: 'Denmark 丹麦' },
+            'Dubai 迪拜': { image: 'images/travel/dubai.jpg', caption: 'Dubai 迪拜' },
+            'Seoul, Korea 韩国首尔': { image: 'images/travel/seoul.jpg', caption: 'Seoul, Korea 韩国首尔' },
+            'HKUST 香港科技大学': { image: 'images/travel/hkust.jpg', caption: 'HKUST 香港科技大学' },
+            'Malaysia 马来西亚': { image: 'images/travel/malaysia.jpg', caption: 'Malaysia 马来西亚' },
+            'France 法国': { image: 'images/travel/france.jpg', caption: 'France 法国' },
+            
+            'Shanghai 上海': { image: 'images/travel/shanghai.jpg', caption: 'Shanghai 上海' },
+            'Lanzhou 兰州': { image: 'images/travel/lanzhou.jpg', caption: 'Lanzhou 兰州' },
+            'Qinghai 青海': { image: 'images/travel/qinghai.jpg', caption: 'Qinghai 青海' },
+            'Beijing 北京': { image: 'images/travel/beijing.jpg', caption: 'Beijing 北京' },
+            'Nanjing 南京': { image: 'images/travel/nanjing.jpg', caption: 'Nanjing 南京' },
+            'Harbin 哈尔滨': { image: 'images/travel/harbin.jpg', caption: 'Harbin 哈尔滨' },
+            'Nanning, Guangxi 广西南宁': { image: 'images/travel/nanning.jpg', caption: 'Nanning, Guangxi 广西南宁' },
+            'Yunnan 云南': { image: 'images/travel/yunnan.jpg', caption: 'Yunnan 云南' },
+            'Jinan 济南': { image: 'images/travel/jinan.jpg', caption: 'Jinan 济南' }
+        };
 
-            // Update markers
-            markers.forEach(m => {
-                if (filter === 'all' || m.getAttribute('data-target') === filter) {
-                    m.style.display = 'block';
-                    if (m.getAttribute('data-target') === filter) {
-                        m.classList.add('active');
-                    } else {
-                        m.classList.remove('active');
-                    }
-                } else {
-                    m.style.display = 'none';
-                    m.classList.remove('active');
-                }
-            });
-
-            // Update sections
-            sections.forEach(section => {
-                if (filter === 'all' || section.getAttribute('data-category') === filter) {
-                    section.classList.add('show');
-                } else {
-                    section.classList.remove('show');
-                }
-            });
+        function openPhotoPopup(photoKey) {
+            const photo = photoData[photoKey];
+            if (photo) {
+                popupImage.src = photo.image;
+                popupImage.alt = photoKey;
+                popupCaption.textContent = photo.caption;
+                photoPopup.classList.add('active');
+            }
         }
 
-        tags.forEach(tag => {
-            tag.addEventListener('click', () => {
-                const filter = tag.getAttribute('data-filter');
-                filterPlaces(filter);
-            });
+        closePopup.addEventListener('click', () => {
+            photoPopup.classList.remove('active');
         });
 
-        markers.forEach(marker => {
-            marker.addEventListener('click', () => {
-                const filter = marker.getAttribute('data-target');
-                filterPlaces(filter);
-                // Optionally scroll to the section
-                const targetSection = document.querySelector(`.place-section[data-category="${filter}"]`);
-                if(targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+        photoPopup.addEventListener('click', (e) => {
+            if (e.target === photoPopup) {
+                photoPopup.classList.remove('active');
+            }
+        });
+
+        // Map configuration
+        const chartDom = document.getElementById('echarts-map');
+        const myChart = echarts.init(chartDom);
+        
+        echarts.registerMap('world_china', worldChinaMap);
+
+        const visitedRegions = [
+            // Middle East
+            { name: 'Yemen', itemStyle: { areaColor: '#e67e22' } },
+            { name: 'Iran', itemStyle: { areaColor: '#d35400' } },
+            { name: 'United Arab Emirates', itemStyle: { areaColor: '#f39c12' } },
+            // Asia
+            { name: 'Indonesia', itemStyle: { areaColor: '#16a085' } },
+            { name: 'Nepal', itemStyle: { areaColor: '#1abc9c' } },
+            { name: 'Pakistan', itemStyle: { areaColor: '#2ecc71' } },
+            { name: 'Thailand', itemStyle: { areaColor: '#27ae60' } },
+            { name: 'Korea', itemStyle: { areaColor: '#3498db' } },
+            { name: 'Malaysia', itemStyle: { areaColor: '#2980b9' } },
+            // Europe
+            { name: 'Hungary', itemStyle: { areaColor: '#9b59b6' } },
+            { name: 'Italy', itemStyle: { areaColor: '#8e44ad' } },
+            { name: 'Belgium', itemStyle: { areaColor: '#95a5a6' } },
+            { name: 'Sweden', itemStyle: { areaColor: '#7f8c8d' } },
+            { name: 'France', itemStyle: { areaColor: '#34495e' } },
+            { name: 'Denmark', itemStyle: { areaColor: '#1abc9c' } },
+            // Oceania
+            { name: 'Fiji', itemStyle: { areaColor: '#f1c40f' } },
+            // China Provinces
+            { name: '上海', itemStyle: { areaColor: '#e74c3c' } },
+            { name: '甘肃', itemStyle: { areaColor: '#c0392b' } },
+            { name: '青海', itemStyle: { areaColor: '#e74c3c' } },
+            { name: '北京', itemStyle: { areaColor: '#c0392b' } },
+            { name: '江苏', itemStyle: { areaColor: '#e74c3c' } },
+            { name: '黑龙江', itemStyle: { areaColor: '#c0392b' } },
+            { name: '广西', itemStyle: { areaColor: '#e74c3c' } },
+            { name: '云南', itemStyle: { areaColor: '#c0392b' } },
+            { name: '山东', itemStyle: { areaColor: '#e74c3c' } },
+            { name: '香港', itemStyle: { areaColor: '#c0392b' } }
+        ];
+
+        const visitedCities = [
+            { name: 'Yemen 也门', value: [47.5, 15.5], target: 'middle-east' },
+            { name: 'Tehran, Iran 伊朗德黑兰', value: [51.389, 35.6892], target: 'middle-east' },
+            { name: 'Jakarta, Indonesia 印尼雅加达', value: [106.8456, -6.2088], target: 'asia' },
+            { name: 'Kathmandu, Nepal 尼泊尔加德满都', value: [85.324, 27.7172], target: 'asia' },
+            { name: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡', value: [73.0479, 33.6844], target: 'asia' },
+            { name: 'Budapest, Hungary 匈牙利布达佩斯', value: [19.0402, 47.4979], target: 'europe' },
+            { name: 'Rome, Italy 意大利罗马', value: [12.4964, 41.9028], target: 'europe' },
+            { name: 'Fiji 斐济', value: [178.065, -17.7134], target: 'oceania' },
+            { name: 'Belgium 比利时', value: [4.4699, 50.5039], target: 'europe' },
+            { name: 'Thailand 泰国', value: [100.9925, 15.8700], target: 'asia' },
+            { name: 'Sweden 瑞典', value: [18.0686, 59.3293], target: 'europe' },
+            { name: 'Denmark 丹麦', value: [9.5018, 56.2639], target: 'europe' },
+            { name: 'Dubai 迪拜', value: [55.2708, 25.2048], target: 'middle-east' },
+            { name: 'Seoul, Korea 韩国首尔', value: [126.9780, 37.5665], target: 'asia' },
+            { name: 'Malaysia 马来西亚', value: [101.9758, 4.2105], target: 'asia' },
+            { name: 'France 法国', value: [2.2137, 46.2276], target: 'europe' },
+            
+            { name: 'Shanghai 上海', value: [121.4737, 31.2304], target: 'china' },
+            { name: 'Lanzhou 兰州', value: [103.8343, 36.0611], target: 'china' },
+            { name: 'Qinghai 青海', value: [101.7782, 36.6171], target: 'china' },
+            { name: 'Beijing 北京', value: [116.4074, 39.9042], target: 'china' },
+            { name: 'Nanjing 南京', value: [118.7969, 32.0603], target: 'china' },
+            { name: 'Harbin 哈尔滨', value: [126.5350, 45.8028], target: 'china' },
+            { name: 'Nanning, Guangxi 广西南宁', value: [108.3601, 22.8170], target: 'china' },
+            { name: 'Yunnan 云南', value: [102.7123, 25.0406], target: 'china' },
+            { name: 'Jinan 济南', value: [117.1201, 36.6512], target: 'china' },
+            { name: 'HKUST 香港科技大学', value: [114.2657, 22.3364], target: 'china' }
+        ];
+
+        function getMapOption(data) {
+            return {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function (params) {
+                        if (params.seriesType === 'effectScatter') {
+                            return params.data.name;
+                        }
+                        return params.name;
+                    }
+                },
+                geo: {
+                    map: 'world_china',
+                    roam: true,
+                    zoom: 1.5,
+                    center: [80, 35], // Focus on Eurasia
+                    itemStyle: {
+                        areaColor: '#dcdde1', // Gray for unvisited
+                        borderColor: '#ffffff',
+                        borderWidth: 0.5
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            areaColor: '#bdc3c7'
+                        },
+                        label: {
+                            show: false
+                        }
+                    },
+                    regions: visitedRegions
+                },
+                series: [
+                    {
+                        type: 'effectScatter',
+                        coordinateSystem: 'geo',
+                        data: data,
+                        symbolSize: 8,
+                        showEffectOn: 'render',
+                        rippleEffect: {
+                            brushType: 'stroke',
+                            scale: 4
+                        },
+                        itemStyle: {
+                            color: '#e74c3c',
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        },
+                        emphasis: {
+                            scale: true
+                        }
+                    }
+                ]
+            };
+        }
+
+        myChart.setOption(getMapOption(visitedCities));
+
+        myChart.on('click', function(params) {
+            if (params.seriesType === 'effectScatter') {
+                const title = params.data.name;
+                
+                // Open photo popup
+                openPhotoPopup(title);
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            myChart.resize();
         });
     </script>
 </body>
