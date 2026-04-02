@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Footprints - Xiangpeng CAO</title>
+    <title>Travels - Xiangpeng CAO</title>
     <meta name="robots" content="noindex, nofollow, noarchive">
     <meta name="keywords" content="Xiangpeng CAO, Travel, Footprints, Europe, Fiji">
     <meta name="description" content="Personal travel footprints of Xiangpeng CAO">
@@ -113,7 +113,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 800;
         }
         
         .photo-popup.active {
@@ -233,10 +233,10 @@
 
             <main class="content">
                 <section>
-                    <h1 class="articletitle">Travel Footprints 我的足迹</h1>
+                    <h1 class="articletitle">Travel 足迹</h1>
                     <p class="articlesubtitle">
                         Traveling is learning.
-                        行万里路，读万卷书
+                        行万里路
                     </p>
                     
                     <!-- Map Section -->
@@ -498,8 +498,14 @@
                 geo: {
                     map: 'world_china',
                     roam: true,
-                    zoom: 1.5,
-                    center: [80, 35], // Focus on Eurasia
+                    // Auto-fit to the bounds of the points
+                    boundingCoords: [
+                        // [lng, lat]
+                        // Left-Bottom (min longitude, min latitude)
+                        [-10, -20], // Rough estimate to include Europe/Africa and Oceania
+                        // Right-Top (max longitude, max latitude)
+                        [180, 65]
+                    ],
                     itemStyle: {
                         areaColor: '#dcdde1', // Gray for unvisited
                         borderColor: '#ffffff',
