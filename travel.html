@@ -235,7 +235,7 @@
                 <section>
                     <h1 class="articletitle">Travel Footprints 我的足迹</h1>
                     <p class="articlesubtitle">
-                        Life is a journey. Photos that I have taken, where i have been.
+                        Photos that I have taken, Places i have been.
                         <br>
                         行万里路，读万卷书
                     </p>
@@ -262,7 +262,7 @@
     <div class="photo-popup" id="photoPopup">
         <div class="photo-popup-content">
             <button class="photo-popup-close" id="closePopup">&times;</button>
-            <img src="" alt="" id="popupImage">
+            <div id="popupImageContainer" style="display: flex; flex-direction: column; gap: 15px; align-items: center; max-height: 70vh; overflow-y: auto; padding: 10px; width: 100%;"></div>
             <div class="photo-popup-caption" id="popupCaption"></div>
         </div>
     </div>
@@ -282,63 +282,65 @@
 
         // Photo Popup functionality
         const photoPopup = document.getElementById('photoPopup');
-        const popupImage = document.getElementById('popupImage');
+        const popupImageContainer = document.getElementById('popupImageContainer');
         const popupCaption = document.getElementById('popupCaption');
         const closePopup = document.getElementById('closePopup');
 
         // Photo data for each location
         const photoData = {
-            'Yemen 也门': { image: 'images/travel/yemen.jpg', caption: 'Yemen 也门' },
-            'Tehran, Iran 伊朗德黑兰': { image: 'images/travel/tehran.jpg', caption: 'Tehran, Iran 伊朗德黑兰' },
-            'Jakarta, Indonesia 印尼雅加达': { image: 'images/travel/jakarta.jpg', caption: 'Jakarta, Indonesia 印尼雅加达' },
-            'Kathmandu, Nepal 尼泊尔加德满都': { image: 'images/travel/kathmandu.jpg', caption: 'Kathmandu, Nepal 尼泊尔加德满都' },
-            'Islamabad, Pakistan 巴基斯坦伊斯兰堡': { image: 'images/travel/airport.jpg', caption: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡' },
-            'Budapest, Hungary 匈牙利布达佩斯': { image: 'images/travel/budapest.jpg', caption: 'Budapest, Hungary 匈牙利布达佩斯' },
-            'Rome, Italy 意大利罗马': { image: 'images/travel/rome.jpg', caption: 'Rome, Italy 意大利罗马' },
-            'Cagliari, Italy 意大利卡利亚里': { image: 'images/travel/rome.jpg', caption: 'Cagliari, Italy 意大利卡利亚里' },
-            'Fiji 斐济': { image: 'images/travel/fiji.jpg', caption: 'Fiji 斐济' },
-            'Belgium 比利时': { image: 'images/travel/belgium.jpg', caption: 'Belgium 比利时' },
-            'Thailand 泰国': { image: 'images/travel/thailand.jpg', caption: 'Thailand 泰国' },
-            'Sweden 瑞典首都斯德哥尔摩': { image: 'images/travel/sweden.jpg', caption: 'Sweden 瑞典首都斯德哥尔摩' },
-            'Karlskrona, Sweden 瑞典卡尔斯克鲁纳': { image: 'images/travel/sweden.jpg', caption: 'Karlskrona, Sweden 瑞典卡尔斯克鲁纳' },
-            'Denmark 丹麦': { image: 'images/travel/kalamoska.jpg', caption: 'Denmark 丹麦' },
-            'Dubai 迪拜': { image: 'images/travel/dubai.jpg', caption: 'Dubai 迪拜' },
-            'Seoul, Korea 韩国首尔': { image: 'images/travel/seoul.jpg', caption: 'Seoul, Korea 韩国首尔' },
-            'Malaysia 马来西亚': { image: 'images/travel/malaysia.jpg', caption: 'Malaysia 马来西亚' },
-            'France 法国': { image: 'images/travel/kalamoska.jpg', caption: 'France 法国' },
-            'Shanghai 上海': { image: 'images/travel/airport.jpg', caption: 'Shanghai 上海' },
-            'Lanzhou 兰州': { image: 'images/travel/airport.jpg', caption: 'Lanzhou 兰州' },
-            'Qinghai 青海': { image: 'images/travel/airport.jpg', caption: 'Qinghai 青海' },
-            'Beijing 北京': { image: 'images/travel/airport.jpg', caption: 'Beijing 北京' },
-            'Nanjing 南京': { image: 'images/travel/airport.jpg', caption: 'Nanjing 南京' },
-            'Harbin 哈尔滨': { image: 'images/travel/airport.jpg', caption: 'Harbin 哈尔滨' },
-            'Nanning, Guangxi 广西南宁': { image: 'images/travel/airport.jpg', caption: 'Nanning, Guangxi 广西南宁' },
-            'Yunnan 云南': { image: 'images/travel/airport.jpg', caption: 'Yunnan 云南' },
-            'Jinan 济南': { image: 'images/travel/airport.jpg', caption: 'Jinan 济南' },
-            'Jiangxi 江西': { image: 'images/travel/airport.jpg', caption: 'Jiangxi 江西' },
-            'Changsha 长沙': { image: 'images/travel/airport.jpg', caption: 'Changsha 长沙' },
-            'Wuhan 武汉': { image: 'images/travel/airport.jpg', caption: 'Wuhan 武汉' },
-            'Chongqing 重庆': { image: 'images/travel/airport.jpg', caption: 'Chongqing 重庆' },
-            'Chengdu 成都': { image: 'images/travel/airport.jpg', caption: 'Chengdu 成都' },
-            'Hangzhou 浙江杭州': { image: 'images/travel/airport.jpg', caption: 'Hangzhou 浙江杭州' },
-            'Chuzhou 安徽滁州': { image: 'images/travel/airport.jpg', caption: 'Chuzhou 安徽滁州' },
-            'Tianjin 天津': { image: 'images/travel/airport.jpg', caption: 'Tianjin 天津' },
-            'Hong Kong 香港': { image: 'images/travel/airport.jpg', caption: 'Hong Kong 香港' },
-            'Macao 澳门': { image: 'images/travel/airport.jpg', caption: 'Macao 澳门' },
-            'Zhuhai 珠海': { image: 'images/travel/airport.jpg', caption: 'Zhuhai 珠海' },
-            'Guangzhou 广州': { image: 'images/travel/airport.jpg', caption: 'Guangzhou 广州' },
-            'Taiyuan 山西太原': { image: 'images/travel/airport.jpg', caption: 'Taiyuan 山西太原' },
-            'Xi\'an 陕西西安': { image: 'images/travel/airport.jpg', caption: 'Xi\'an 陕西西安' },
-            'Guiyang 贵州贵阳': { image: 'images/travel/airport.jpg', caption: 'Guiyang 贵州贵阳' },
-            'Xiamen 福建厦门': { image: 'images/travel/airport.jpg', caption: 'Xiamen 福建厦门' },
-            'Shenyang 辽宁沈阳': { image: 'images/travel/airport.jpg', caption: 'Shenyang 辽宁沈阳' }
+            'Yemen 也门': { images: ['images/travel/yemen.jpg', 'images/travel/yemen2.jpg'], caption: 'Yemen 也门' },
+            'Tehran, Iran 伊朗德黑兰': { images: ['images/travel/tehran.jpg'], caption: 'Tehran, Iran 伊朗德黑兰' },
+            'Jakarta, Indonesia 印尼雅加达': { images: ['images/travel/jakarta.jpg'], caption: 'Jakarta, Indonesia 印尼雅加达' },
+            'Kathmandu, Nepal 尼泊尔加德满都': { images: ['images/travel/kathmandu.jpg'], caption: 'Kathmandu, Nepal 尼泊尔加德满都' },
+            'Islamabad, Pakistan 巴基斯坦伊斯兰堡': { images: ['images/travel/airport.jpg'], caption: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡' },
+            'Budapest, Hungary 匈牙利布达佩斯': { images: ['images/travel/budapest.jpg', 'images/travel/budapest2.jpg'], caption: 'Budapest, Hungary 匈牙利布达佩斯' },
+            'Rome, Italy 意大利罗马': { images: ['images/travel/rome.jpg'], caption: 'Rome, Italy 意大利罗马' },
+            'Cagliari, Italy 意大利卡利亚里': { images: ['images/travel/rome.jpg'], caption: 'Cagliari, Italy 意大利卡利亚里' },
+            'Fiji 斐济': { images: ['images/travel/fiji.jpg', 'images/travel/fiji2.jpg'], caption: 'Fiji 斐济' },
+            'Belgium 比利时': { images: ['images/travel/belgium.jpg'], caption: 'Belgium 比利时' },
+            'Thailand 泰国': { images: ['images/travel/thailand.jpg', 'images/travel/thailand2.jpg'], caption: 'Thailand 泰国' },
+            'Sweden 瑞典首都斯德哥尔摩': { images: ['images/travel/sweden.jpg', 'images/travel/sweden2.jpg'], caption: 'Sweden 瑞典首都斯德哥尔摩' },
+            'Karlskrona, Sweden 瑞典卡尔斯克鲁纳': { images: ['images/travel/sweden.jpg', 'images/travel/sweden2.jpg'], caption: 'Karlskrona, Sweden 瑞典卡尔斯克鲁纳' },
+            'Denmark 丹麦': { images: ['images/travel/kalamoska.jpg'], caption: 'Denmark 丹麦' },
+            'Dubai 迪拜': { images: ['images/travel/dubai.jpg'], caption: 'Dubai 迪拜' },
+            'Seoul, Korea 韩国首尔': { images: ['images/travel/seoul.jpg'], caption: 'Seoul, Korea 韩国首尔' },
+            'Malaysia 马来西亚': { images: ['images/travel/malaysia.jpg'], caption: 'Malaysia 马来西亚' },
+            'France 法国': { images: ['images/travel/kalamoska.jpg'], caption: 'France 法国' },
+            'Shanghai 上海': { images: ['images/travel/airport.jpg'], caption: 'Shanghai 上海' },
+            'Lanzhou 兰州': { images: ['images/travel/airport.jpg'], caption: 'Lanzhou 兰州' },
+            'Qinghai 青海': { images: ['images/travel/airport.jpg'], caption: 'Qinghai 青海' },
+            'Beijing 北京': { images: ['images/travel/airport.jpg'], caption: 'Beijing 北京' },
+            'Nanjing 南京': { images: ['images/travel/airport.jpg'], caption: 'Nanjing 南京' },
+            'Harbin 哈尔滨': { images: ['images/travel/airport.jpg'], caption: 'Harbin 哈尔滨' },
+            'Nanning, Guangxi 广西南宁': { images: ['images/travel/airport.jpg'], caption: 'Nanning, Guangxi 广西南宁' },
+            'Yunnan 云南': { images: ['images/travel/airport.jpg'], caption: 'Yunnan 云南' },
+            'Jinan 济南': { images: ['images/travel/airport.jpg'], caption: 'Jinan 济南' },
+            'Jiangxi 江西': { images: ['images/travel/airport.jpg'], caption: 'Jiangxi 江西' },
+            'Changsha 长沙': { images: ['images/travel/airport.jpg'], caption: 'Changsha 长沙' },
+            'Wuhan 武汉': { images: ['images/travel/airport.jpg'], caption: 'Wuhan 武汉' },
+            'Chongqing 重庆': { images: ['images/travel/airport.jpg'], caption: 'Chongqing 重庆' },
+            'Chengdu 成都': { images: ['images/travel/airport.jpg'], caption: 'Chengdu 成都' },
+            'Hangzhou 浙江杭州': { images: ['images/travel/airport.jpg'], caption: 'Hangzhou 浙江杭州' },
+            'Chuzhou 安徽滁州': { images: ['images/travel/airport.jpg'], caption: 'Chuzhou 安徽滁州' },
+            'Tianjin 天津': { images: ['images/travel/airport.jpg'], caption: 'Tianjin 天津' },
+            'Hong Kong 香港': { images: ['images/travel/airport.jpg'], caption: 'Hong Kong 香港' },
+            'Macao 澳门': { images: ['images/travel/airport.jpg'], caption: 'Macao 澳门' },
+            'Zhuhai 珠海': { images: ['images/travel/airport.jpg'], caption: 'Zhuhai 珠海' },
+            'Guangzhou 广州': { images: ['images/travel/airport.jpg'], caption: 'Guangzhou 广州' },
+            'Taiyuan 山西太原': { images: ['images/travel/airport.jpg'], caption: 'Taiyuan 山西太原' },
+            'Xi\'an 陕西西安': { images: ['images/travel/airport.jpg'], caption: 'Xi\'an 陕西西安' },
+            'Guiyang 贵州贵阳': { images: ['images/travel/airport.jpg'], caption: 'Guiyang 贵州贵阳' },
+            'Xiamen 福建厦门': { images: ['images/travel/airport.jpg'], caption: 'Xiamen 福建厦门' },
+            'Shenyang 辽宁沈阳': { images: ['images/travel/airport.jpg'], caption: 'Shenyang 辽宁沈阳' }
         };
 
         function openPhotoPopup(photoKey) {
             const photo = photoData[photoKey];
-            if (photo) {
-                popupImage.src = photo.image;
-                popupImage.alt = photoKey;
+            if (photo && photo.images && photo.images.length > 0) {
+                popupImageContainer.innerHTML = photo.images.map(img => 
+                    '<img src="' + img + '" alt="' + photoKey + '" style="max-width: 100%; max-height: 70vh; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); object-fit: contain;">'
+                ).join('');
+                
                 popupCaption.textContent = photo.caption;
                 photoPopup.classList.add('active');
             }
@@ -466,11 +468,15 @@
                     formatter: function (params) {
                         if (params.seriesType === 'scatter') {
                             const photo = photoData[params.data.name];
-                            if (photo) {
+                            if (photo && photo.images && photo.images.length > 0) {
+                                const imagesHtml = photo.images.map(img => 
+                                    '<img src="' + img + '" style="max-width: 100%; max-height: 150px; border-radius: 4px; object-fit: cover; margin-bottom: 5px; display: block;">'
+                                ).join('');
+                                
                                 return `
-                                    <div style="text-align: center; max-width: 200px;">
+                                    <div style="text-align: center; max-width: 200px; max-height: 350px; overflow-y: auto;">
                                         <div style="font-weight: bold; margin-bottom: 8px;">${params.data.name}</div>
-                                        <img src="${photo.image}" style="max-width: 100%; max-height: 150px; border-radius: 4px; object-fit: cover;">
+                                        ${imagesHtml}
                                     </div>
                                 `;
                             }
@@ -524,7 +530,7 @@
         myChart.setOption(getMapOption(visitedCities));
 
         myChart.on('click', function(params) {
-            if (params.seriesType === 'effectScatter') {
+            if (params.seriesType === 'scatter') {
                 const title = params.data.name;
                 
                 // Open photo popup
