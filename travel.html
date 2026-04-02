@@ -163,8 +163,8 @@
 
         .travel-layout {
             display: flex;
-            max-width: 1400px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 0;
             padding: 0 20px;
             gap: 20px;
         }
@@ -455,6 +455,17 @@
 
         function getMapOption(data) {
             return {
+                title: {
+                    text: 'All photos taken by caoxp',
+                    left: '10',
+                    bottom: '10',
+                    textStyle: {
+                        color: '#666',
+                        fontSize: 12,
+                        fontWeight: 'normal',
+                        fontStyle: 'italic'
+                    }
+                },
                 tooltip: {
                     trigger: 'item',
                     backgroundColor: 'rgba(255, 255, 255, 0.95)',
