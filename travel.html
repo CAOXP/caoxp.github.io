@@ -161,12 +161,29 @@
             margin: 20px auto;
         }
 
+        .travel-layout {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 20px;
+        }
+
         #echarts-map {
+            flex: 1;
             width: 100%;
-            height: 100%;
+            height: 600px;
+            margin-top: 20px;
+            background-color: transparent;
             border-radius: 8px;
-            background: #eef2f5;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .right-sidebar {
+            width: 250px;
+            flex-shrink: 0;
+            margin-top: 20px;
+            /* Optional: Add some styling if needed later, right now it just acts as an empty space filler */
         }
 
         /* Responsive styles */
@@ -218,12 +235,18 @@
                 <section>
                     <h1 class="articletitle">Travel Footprints 我的足迹</h1>
                     <p class="articlesubtitle">
-                        Life is a journey. Photos that I have taken.
+                        Life is a journey. Photos that I have taken, where i have been.
+                        <br>
+                        行万里路，读万卷书
                     </p>
                     
                     <!-- Map Section -->
                     <div class="map-container">
-                        <div id="echarts-map"></div>
+                        <div class="travel-layout">
+                            <div id="echarts-map"></div>
+                            <!-- Empty right sidebar to balance the layout as requested -->
+                            <div class="right-sidebar"></div>
+                        </div>
                     </div>
                 </section>
             </main>
@@ -272,26 +295,43 @@
             'Islamabad, Pakistan 巴基斯坦伊斯兰堡': { image: 'images/travel/airport.jpg', caption: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡' },
             'Budapest, Hungary 匈牙利布达佩斯': { image: 'images/travel/budapest.jpg', caption: 'Budapest, Hungary 匈牙利布达佩斯' },
             'Rome, Italy 意大利罗马': { image: 'images/travel/rome.jpg', caption: 'Rome, Italy 意大利罗马' },
+            'Cagliari, Italy 意大利卡利亚里': { image: 'images/travel/rome.jpg', caption: 'Cagliari, Italy 意大利卡利亚里' },
             'Fiji 斐济': { image: 'images/travel/fiji.jpg', caption: 'Fiji 斐济' },
             'Belgium 比利时': { image: 'images/travel/belgium.jpg', caption: 'Belgium 比利时' },
             'Thailand 泰国': { image: 'images/travel/thailand.jpg', caption: 'Thailand 泰国' },
-            'Sweden 瑞典': { image: 'images/travel/sweden.jpg', caption: 'Sweden 瑞典' },
+            'Sweden 瑞典首都斯德哥尔摩': { image: 'images/travel/sweden.jpg', caption: 'Sweden 瑞典首都斯德哥尔摩' },
+            'Karlskrona, Sweden 瑞典卡尔斯克鲁纳': { image: 'images/travel/sweden.jpg', caption: 'Karlskrona, Sweden 瑞典卡尔斯克鲁纳' },
             'Denmark 丹麦': { image: 'images/travel/kalamoska.jpg', caption: 'Denmark 丹麦' },
             'Dubai 迪拜': { image: 'images/travel/dubai.jpg', caption: 'Dubai 迪拜' },
             'Seoul, Korea 韩国首尔': { image: 'images/travel/seoul.jpg', caption: 'Seoul, Korea 韩国首尔' },
-            'HKUST 香港科技大学': { image: 'images/travel/meigonghei.jpg', caption: 'HKUST 香港科技大学' },
             'Malaysia 马来西亚': { image: 'images/travel/malaysia.jpg', caption: 'Malaysia 马来西亚' },
             'France 法国': { image: 'images/travel/kalamoska.jpg', caption: 'France 法国' },
-            
-            'Shanghai 上海': { image: 'images/travel/meigonghei.jpg', caption: 'Shanghai 上海' },
-            'Lanzhou 兰州': { image: 'images/travel/kalamoska.jpg', caption: 'Lanzhou 兰州' },
-            'Qinghai 青海': { image: 'images/travel/meigonghei.jpg', caption: 'Qinghai 青海' },
+            'Shanghai 上海': { image: 'images/travel/airport.jpg', caption: 'Shanghai 上海' },
+            'Lanzhou 兰州': { image: 'images/travel/airport.jpg', caption: 'Lanzhou 兰州' },
+            'Qinghai 青海': { image: 'images/travel/airport.jpg', caption: 'Qinghai 青海' },
             'Beijing 北京': { image: 'images/travel/airport.jpg', caption: 'Beijing 北京' },
-            'Nanjing 南京': { image: 'images/travel/meigonghei.jpg', caption: 'Nanjing 南京' },
-            'Harbin 哈尔滨': { image: 'images/travel/harbin.jpg', caption: 'Harbin 哈尔滨' },
-            'Nanning, Guangxi 广西南宁': { image: 'images/travel/kalamoska.jpg', caption: 'Nanning, Guangxi 广西南宁' },
-            'Yunnan 云南': { image: 'images/travel/meigonghei.jpg', caption: 'Yunnan 云南' },
-            'Jinan 济南': { image: 'images/travel/airport.jpg', caption: 'Jinan 济南' }
+            'Nanjing 南京': { image: 'images/travel/airport.jpg', caption: 'Nanjing 南京' },
+            'Harbin 哈尔滨': { image: 'images/travel/airport.jpg', caption: 'Harbin 哈尔滨' },
+            'Nanning, Guangxi 广西南宁': { image: 'images/travel/airport.jpg', caption: 'Nanning, Guangxi 广西南宁' },
+            'Yunnan 云南': { image: 'images/travel/airport.jpg', caption: 'Yunnan 云南' },
+            'Jinan 济南': { image: 'images/travel/airport.jpg', caption: 'Jinan 济南' },
+            'Jiangxi 江西': { image: 'images/travel/airport.jpg', caption: 'Jiangxi 江西' },
+            'Changsha 长沙': { image: 'images/travel/airport.jpg', caption: 'Changsha 长沙' },
+            'Wuhan 武汉': { image: 'images/travel/airport.jpg', caption: 'Wuhan 武汉' },
+            'Chongqing 重庆': { image: 'images/travel/airport.jpg', caption: 'Chongqing 重庆' },
+            'Chengdu 成都': { image: 'images/travel/airport.jpg', caption: 'Chengdu 成都' },
+            'Hangzhou 浙江杭州': { image: 'images/travel/airport.jpg', caption: 'Hangzhou 浙江杭州' },
+            'Chuzhou 安徽滁州': { image: 'images/travel/airport.jpg', caption: 'Chuzhou 安徽滁州' },
+            'Tianjin 天津': { image: 'images/travel/airport.jpg', caption: 'Tianjin 天津' },
+            'Hong Kong 香港': { image: 'images/travel/airport.jpg', caption: 'Hong Kong 香港' },
+            'Macao 澳门': { image: 'images/travel/airport.jpg', caption: 'Macao 澳门' },
+            'Zhuhai 珠海': { image: 'images/travel/airport.jpg', caption: 'Zhuhai 珠海' },
+            'Guangzhou 广州': { image: 'images/travel/airport.jpg', caption: 'Guangzhou 广州' },
+            'Taiyuan 山西太原': { image: 'images/travel/airport.jpg', caption: 'Taiyuan 山西太原' },
+            'Xi\'an 陕西西安': { image: 'images/travel/airport.jpg', caption: 'Xi\'an 陕西西安' },
+            'Guiyang 贵州贵阳': { image: 'images/travel/airport.jpg', caption: 'Guiyang 贵州贵阳' },
+            'Xiamen 福建厦门': { image: 'images/travel/airport.jpg', caption: 'Xiamen 福建厦门' },
+            'Shenyang 辽宁沈阳': { image: 'images/travel/airport.jpg', caption: 'Shenyang 辽宁沈阳' }
         };
 
         function openPhotoPopup(photoKey) {
@@ -356,22 +396,29 @@
         ];
 
         const visitedCities = [
-            { name: 'Yemen 也门', value: [47.5, 15.5], target: 'middle-east' },
-            { name: 'Tehran, Iran 伊朗德黑兰', value: [51.389, 35.6892], target: 'middle-east' },
-            { name: 'Jakarta, Indonesia 印尼雅加达', value: [106.8456, -6.2088], target: 'asia' },
-            { name: 'Kathmandu, Nepal 尼泊尔加德满都', value: [85.324, 27.7172], target: 'asia' },
-            { name: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡', value: [73.0479, 33.6844], target: 'asia' },
-            { name: 'Budapest, Hungary 匈牙利布达佩斯', value: [19.0402, 47.4979], target: 'europe' },
-            { name: 'Rome, Italy 意大利罗马', value: [12.4964, 41.9028], target: 'europe' },
-            { name: 'Fiji 斐济', value: [178.065, -17.7134], target: 'oceania' },
-            { name: 'Belgium 比利时', value: [4.4699, 50.5039], target: 'europe' },
-            { name: 'Thailand 泰国', value: [100.9925, 15.8700], target: 'asia' },
-            { name: 'Sweden 瑞典', value: [18.0686, 59.3293], target: 'europe' },
-            { name: 'Denmark 丹麦', value: [9.5018, 56.2639], target: 'europe' },
-            { name: 'Dubai 迪拜', value: [55.2708, 25.2048], target: 'middle-east' },
-            { name: 'Seoul, Korea 韩国首尔', value: [126.9780, 37.5665], target: 'asia' },
-            { name: 'Malaysia 马来西亚', value: [101.9758, 4.2105], target: 'asia' },
-            { name: 'France 法国', value: [2.2137, 46.2276], target: 'europe' },
+            // Asia & Middle East
+            { name: 'Yemen 也门', value: [44.2066, 15.3694] },
+            { name: 'Tehran, Iran 伊朗德黑兰', value: [51.3890, 35.6892] },
+            { name: 'Jakarta, Indonesia 印尼雅加达', value: [106.8229, -6.2088] },
+            { name: 'Kathmandu, Nepal 尼泊尔加德满都', value: [85.3240, 27.7172] },
+            { name: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡', value: [73.0479, 33.6844] },
+            { name: 'Thailand 泰国', value: [100.5018, 13.7563] },
+            { name: 'Dubai 迪拜', value: [55.2708, 25.2048] },
+            { name: 'Seoul, Korea 韩国首尔', value: [126.9780, 37.5665] },
+            { name: 'Malaysia 马来西亚', value: [101.6869, 3.1390] },
+
+            // Europe
+            { name: 'Budapest, Hungary 匈牙利布达佩斯', value: [19.0402, 47.4979] },
+            { name: 'Rome, Italy 意大利罗马', value: [12.4964, 41.9028] },
+            { name: 'Cagliari, Italy 意大利卡利亚里', value: [9.1110, 39.2238] }, // 意大利撒丁岛最南端
+            { name: 'Belgium 比利时', value: [4.3517, 50.8503] },
+            { name: 'Sweden 瑞典首都斯德哥尔摩', value: [18.0686, 59.3293] },
+            { name: 'Karlskrona, Sweden 瑞典卡尔斯克鲁纳', value: [15.5866, 56.1612] }, // 瑞典南部城市
+            { name: 'Denmark 丹麦', value: [12.5683, 55.6761] },
+            { name: 'France 法国', value: [2.3522, 48.8566] },
+
+            // Oceania
+            { name: 'Fiji 斐济', value: [178.0650, -17.7134] },
             
             { name: 'Shanghai 上海', value: [121.4737, 31.2304], target: 'china' },
             { name: 'Lanzhou 兰州', value: [103.8343, 36.0611], target: 'china' },
@@ -382,7 +429,27 @@
             { name: 'Nanning, Guangxi 广西南宁', value: [108.3601, 22.8170], target: 'china' },
             { name: 'Yunnan 云南', value: [102.7123, 25.0406], target: 'china' },
             { name: 'Jinan 济南', value: [117.1201, 36.6512], target: 'china' },
-            { name: 'HKUST 香港科技大学', value: [114.2657, 22.3364], target: 'china' }
+            
+            // New China Points
+            { name: 'Jiangxi 江西', value: [115.8921, 28.6764], target: 'china' }, // 南昌
+            { name: 'Changsha 长沙', value: [112.9388, 28.2282], target: 'china' },
+            { name: 'Wuhan 武汉', value: [114.3055, 30.5928], target: 'china' },
+            { name: 'Chongqing 重庆', value: [106.5516, 29.5630], target: 'china' },
+            { name: 'Chengdu 成都', value: [104.0665, 30.5723], target: 'china' },
+            { name: 'Hangzhou 浙江杭州', value: [120.1551, 30.2741], target: 'china' },
+            { name: 'Chuzhou 安徽滁州', value: [118.3163, 32.2953], target: 'china' },
+            { name: 'Tianjin 天津', value: [117.2009, 39.0841], target: 'china' },
+            
+            // More China Points
+            { name: 'Hong Kong 香港', value: [114.1694, 22.3193], target: 'china' },
+            { name: 'Macao 澳门', value: [113.5430, 22.1987], target: 'china' },
+            { name: 'Zhuhai 珠海', value: [113.5767, 22.2707], target: 'china' },
+            { name: 'Guangzhou 广州', value: [113.2644, 23.1291], target: 'china' },
+            { name: 'Taiyuan 山西太原', value: [112.5489, 37.8706], target: 'china' },
+            { name: 'Xi\'an 陕西西安', value: [108.9398, 34.3413], target: 'china' },
+            { name: 'Guiyang 贵州贵阳', value: [106.6302, 26.6477], target: 'china' },
+            { name: 'Xiamen 福建厦门', value: [118.0894, 24.4798], target: 'china' },
+            { name: 'Shenyang 辽宁沈阳', value: [123.4315, 41.8057], target: 'china' }
         ];
 
         function getMapOption(data) {
@@ -397,7 +464,7 @@
                         color: '#333'
                     },
                     formatter: function (params) {
-                        if (params.seriesType === 'effectScatter') {
+                        if (params.seriesType === 'scatter') {
                             const photo = photoData[params.data.name];
                             if (photo) {
                                 return `
@@ -434,22 +501,20 @@
                 },
                 series: [
                     {
-                        type: 'effectScatter',
+                        name: 'Cities',
+                        type: 'scatter',
                         coordinateSystem: 'geo',
                         data: data,
                         symbolSize: 8,
-                        showEffectOn: 'render',
-                        rippleEffect: {
-                            brushType: 'stroke',
-                            scale: 4
-                        },
                         itemStyle: {
                             color: '#e74c3c',
-                            shadowBlur: 10,
-                            shadowColor: '#333'
+                            borderColor: '#fff',
+                            borderWidth: 1,
+                            shadowBlur: 2,
+                            shadowColor: 'rgba(0,0,0,0.5)'
                         },
-                        emphasis: {
-                            scale: true
+                        label: {
+                            show: false
                         }
                     }
                 ]
