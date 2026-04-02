@@ -201,7 +201,7 @@
         <header>
             <table class="logo-table">
                 <tr>
-                    <td><img src="images/cctelogo.png" alt="土木与交通工程学院" height="50"></td>
+                    <td><img src="images/cctelogo.png" alt="College of Civil and Transportation Engineering" height="50"></td>
                     <td><img src="images/szu.jpg" alt="Shenzhen University" height="50"></td>
                 </tr>
             </table>
@@ -234,10 +234,9 @@
 
             <main class="content">
                 <section>
-                    <h1 class="articletitle">Travel 足迹</h1>
+                    <h1 class="articletitle">Travel</h1>
                     <p class="articlesubtitle">
                         Traveling is learning.
-                        行万里路
                     </p>
                     
                     <!-- Map Section -->
@@ -253,7 +252,7 @@
         </div>
 
         <footer>
-            <p class="foot">曹香鹏 2026 Designed with AI &copy; CAOXP</p>
+            <p class="foot">Xiangpeng CAO 2026 Designed with AI &copy; CAOXP</p>
         </footer>
     </div>
     <a href="#top" class="back-to-top" id="backToTop">Back to Top ↑</a>
@@ -288,50 +287,87 @@
 
         // Photo data for each location
         const photoData = {
-            'Yemen 也门': { images: ['images/travel/yemen.jpg', 'images/travel/yemen2.jpg'], caption: 'Yemen 也门' },
-            'Tehran, Iran 伊朗德黑兰': { images: ['images/travel/tehran.jpg'], caption: 'Tehran, Iran 伊朗德黑兰' },
-            'Jakarta, Indonesia 印尼雅加达': { images: ['images/travel/jakarta.jpg'], caption: 'Jakarta, Indonesia 印尼雅加达' },
-            'Kathmandu, Nepal 尼泊尔加德满都': { images: ['images/travel/kathmandu.jpg'], caption: 'Kathmandu, Nepal 尼泊尔加德满都' },
-            'Islamabad, Pakistan 巴基斯坦伊斯兰堡': { images: ['images/travel/islamabad.jpg'], caption: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡' },
-            'Budapest, Hungary 匈牙利布达佩斯': { images: ['images/travel/budapest.jpg'], caption: 'Budapest, Hungary 匈牙利布达佩斯' },
-            'Rome, Italy 意大利罗马': { images: ['images/travel/rome.jpg'], caption: 'Rome, Italy 意大利罗马' },
-            'Cagliari, Italy 意大利卡利亚里': { images: ['images/travel/cagliari.jpg'], caption: 'Cagliari, Italy 意大利卡利亚里' },
-            'Fiji 斐济': { images: ['images/travel/fiji.jpg', 'images/travel/fiji2.jpg'], caption: 'Fiji 斐济' },
-            'Belgium 比利时': { images: ['images/travel/belgium.jpg'], caption: 'Belgium 比利时' },
-            'Thailand 泰国': { images: ['images/travel/thailand.jpg', 'images/travel/thailand2.jpg'], caption: 'Thailand 泰国' },
-            'Sweden 瑞典首都斯德哥尔摩': { images: ['images/travel/sweden.jpg'], caption: 'Sweden 瑞典首都斯德哥尔摩' },
-            'Karlskrona, Sweden 瑞典卡尔斯克鲁纳': { images: ['images/travel/karlskrona.jpg'], caption: 'Karlskrona, Sweden 瑞典卡尔斯克鲁纳' },
-            'Denmark 丹麦': { images: ['images/travel/airport.jpg'], caption: 'Denmark 丹麦' },
-            'Dubai 迪拜': { images: ['images/travel/dubai.jpg'], caption: 'Dubai 迪拜' },
-            'Seoul, Korea 韩国首尔': { images: ['images/travel/seoul.jpg'], caption: 'Seoul, Korea 韩国首尔' },
-            'Malaysia 马来西亚': { images: ['images/travel/malaysia.jpg'], caption: 'Malaysia 马来西亚' },
-            'France 法国': { images: ['images/travel/airport.jpg'], caption: 'France 法国' },
-            'Shanghai 上海': { images: ['images/travel/airport.jpg'], caption: 'Shanghai 上海' },
-            'Lanzhou 兰州': { images: ['images/travel/airport.jpg'], caption: 'Lanzhou 兰州' },
-            'Qinghai 青海': { images: ['images/travel/airport.jpg'], caption: 'Qinghai 青海' },
-            'Beijing 北京': { images: ['images/travel/airport.jpg'], caption: 'Beijing 北京' },
-            'Nanjing 南京': { images: ['images/travel/airport.jpg'], caption: 'Nanjing 南京' },
-            'Harbin 哈尔滨': { images: ['images/travel/airport.jpg'], caption: 'Harbin 哈尔滨' },
-            'Nanning, Guangxi 广西南宁': { images: ['images/travel/airport.jpg'], caption: 'Nanning, Guangxi 广西南宁' },
-            'Yunnan 云南': { images: ['images/travel/airport.jpg'], caption: 'Yunnan 云南' },
-            'Jinan 济南': { images: ['images/travel/airport.jpg'], caption: 'Jinan 济南' },
-            'Jiangxi 江西': { images: ['images/travel/airport.jpg'], caption: 'Jiangxi 江西' },
-            'Changsha 长沙': { images: ['images/travel/airport.jpg'], caption: 'Changsha 长沙' },
-            'Wuhan 武汉': { images: ['images/travel/airport.jpg'], caption: 'Wuhan 武汉' },
-            'Chongqing 重庆': { images: ['images/travel/airport.jpg'], caption: 'Chongqing 重庆' },
-            'Chengdu 成都': { images: ['images/travel/airport.jpg'], caption: 'Chengdu 成都' },
-            'Hangzhou 浙江杭州': { images: ['images/travel/airport.jpg'], caption: 'Hangzhou 浙江杭州' },
-            'Chuzhou 安徽滁州': { images: ['images/travel/airport.jpg'], caption: 'Chuzhou 安徽滁州' },
-            'Tianjin 天津': { images: ['images/travel/airport.jpg'], caption: 'Tianjin 天津' },
-            'Hong Kong 香港': { images: ['images/travel/airport.jpg'], caption: 'Hong Kong 香港' },
-            'Macao 澳门': { images: ['images/travel/airport.jpg'], caption: 'Macao 澳门' },
-            'Zhuhai 珠海': { images: ['images/travel/airport.jpg'], caption: 'Zhuhai 珠海' },
-            'Guangzhou 广州': { images: ['images/travel/airport.jpg'], caption: 'Guangzhou 广州' },
-            'Taiyuan 山西太原': { images: ['images/travel/airport.jpg'], caption: 'Taiyuan 山西太原' },
-            'Xi\'an 陕西西安': { images: ['images/travel/airport.jpg'], caption: 'Xi\'an 陕西西安' },
-            'Guiyang 贵州贵阳': { images: ['images/travel/airport.jpg'], caption: 'Guiyang 贵州贵阳' },
-            'Xiamen 福建厦门': { images: ['images/travel/airport.jpg'], caption: 'Xiamen 福建厦门' },
-            'Shenyang 辽宁沈阳': { images: ['images/travel/airport.jpg'], caption: 'Shenyang 辽宁沈阳' }
+            'Sana\'a, Yemen': { images: ['images/travel/yemen.jpg', 'images/travel/yemen2.jpg'], caption: 'Sana\'a, Yemen' },
+            'Tehran, Iran': { images: ['images/travel/tehran.jpg'], caption: 'Tehran, Iran' },
+            'Jakarta, Indonesia': { images: ['images/travel/jakarta.jpg'], caption: 'Jakarta, Indonesia' },
+            'Kathmandu, Nepal': { images: ['images/travel/kathmandu.jpg'], caption: 'Kathmandu, Nepal' },
+            'Islamabad, Pakistan': { images: ['images/travel/islamabad.jpg'], caption: 'Islamabad, Pakistan' },
+            'Budapest, Hungary': { images: ['images/travel/budapest.jpg'], caption: 'Budapest, Hungary' },
+            'Rome, Italy': { images: ['images/travel/rome.jpg'], caption: 'Rome, Italy' },
+            'Cagliari, Italy': { images: ['images/travel/cagliari.jpg'], caption: 'Cagliari, Italy' },
+            'Suva, Fiji': { images: ['images/travel/fiji.jpg', 'images/travel/fiji2.jpg'], caption: 'Suva, Fiji' },
+            'Brussels, Belgium': { images: ['images/travel/belgium.jpg'], caption: 'Brussels, Belgium' },
+            'Bangkok, Thailand': { images: ['images/travel/thailand.jpg', 'images/travel/thailand2.jpg'], caption: 'Bangkok, Thailand' },
+            'Stockholm, Sweden': { images: ['images/travel/sweden.jpg'], caption: 'Stockholm, Sweden' },
+            'Karlskrona, Sweden': { images: ['images/travel/karlskrona.jpg'], caption: 'Karlskrona, Sweden' },
+            'Copenhagen, Denmark': { images: ['images/travel/airport.jpg'], caption: 'Copenhagen, Denmark' },
+            'Dubai': { images: ['images/travel/dubai.jpg'], caption: 'Dubai' },
+            'Seoul, Korea': { images: ['images/travel/seoul.jpg'], caption: 'Seoul, Korea' },
+            'Kuala Lumpur, Malaysia': { images: ['images/travel/malaysia.jpg'], caption: 'Kuala Lumpur, Malaysia' },
+            'Paris, France': { images: ['images/travel/airport.jpg'], caption: 'Paris, France' },
+            'Shanghai': { images: ['images/travel/airport.jpg'], caption: 'Shanghai' },
+            'Lanzhou': { images: ['images/travel/airport.jpg'], caption: 'Lanzhou' },
+            'Qinghai': { images: ['images/travel/airport.jpg'], caption: 'Qinghai' },
+            'Beijing': { images: ['images/travel/airport.jpg'], caption: 'Beijing' },
+            'Nanjing': { images: ['images/travel/airport.jpg'], caption: 'Nanjing' },
+            'Harbin': { images: ['images/travel/airport.jpg'], caption: 'Harbin' },
+            'Nanning, Guangxi': { images: ['images/travel/airport.jpg'], caption: 'Nanning, Guangxi' },
+            'Yunnan': { images: ['images/travel/airport.jpg'], caption: 'Yunnan' },
+            'Jinan': { images: ['images/travel/airport.jpg'], caption: 'Jinan' },
+            'Jiangxi': { images: ['images/travel/airport.jpg'], caption: 'Jiangxi' },
+            'Changsha': { images: ['images/travel/airport.jpg'], caption: 'Changsha' },
+            'Wuhan': { images: ['images/travel/airport.jpg'], caption: 'Wuhan' },
+            'Chongqing': { images: ['images/travel/airport.jpg'], caption: 'Chongqing' },
+            'Chengdu': { images: ['images/travel/airport.jpg'], caption: 'Chengdu' },
+            'Hangzhou': { images: ['images/travel/airport.jpg'], caption: 'Hangzhou' },
+            'Chuzhou': { images: ['images/travel/airport.jpg'], caption: 'Chuzhou' },
+            'Tianjin': { images: ['images/travel/airport.jpg'], caption: 'Tianjin' },
+            'Hong Kong': { images: ['images/travel/airport.jpg'], caption: 'Hong Kong' },
+            'Macao': { images: ['images/travel/airport.jpg'], caption: 'Macao' },
+            'Zhuhai': { images: ['images/travel/airport.jpg'], caption: 'Zhuhai' },
+            'Guangzhou': { images: ['images/travel/airport.jpg'], caption: 'Guangzhou' },
+            'Taiyuan': { images: ['images/travel/airport.jpg'], caption: 'Taiyuan' },
+            'Xi\'an': { images: ['images/travel/airport.jpg'], caption: 'Xi\'an' },
+            'Guiyang': { images: ['images/travel/airport.jpg'], caption: 'Guiyang' },
+            'Xiamen': { images: ['images/travel/airport.jpg'], caption: 'Xiamen' },
+            'Shenyang': { images: ['images/travel/airport.jpg'], caption: 'Shenyang' }
+        };
+
+        const regionNameMap = {
+            '\u5317\u4eac\u5e02': 'Beijing',
+            '\u5929\u6d25\u5e02': 'Tianjin',
+            '\u6cb3\u5317\u7701': 'Hebei',
+            '\u5c71\u897f\u7701': 'Shanxi',
+            '\u5185\u8499\u53e4\u81ea\u6cbb\u533a': 'Inner Mongolia',
+            '\u8fbd\u5b81\u7701': 'Liaoning',
+            '\u5409\u6797\u7701': 'Jilin',
+            '\u9ed1\u9f99\u6c5f\u7701': 'Heilongjiang',
+            '\u4e0a\u6d77\u5e02': 'Shanghai',
+            '\u6c5f\u82cf\u7701': 'Jiangsu',
+            '\u6d59\u6c5f\u7701': 'Zhejiang',
+            '\u5b89\u5fbd\u7701': 'Anhui',
+            '\u798f\u5efa\u7701': 'Fujian',
+            '\u6c5f\u897f\u7701': 'Jiangxi',
+            '\u5c71\u4e1c\u7701': 'Shandong',
+            '\u6cb3\u5357\u7701': 'Henan',
+            '\u6e56\u5317\u7701': 'Hubei',
+            '\u6e56\u5357\u7701': 'Hunan',
+            '\u5e7f\u4e1c\u7701': 'Guangdong',
+            '\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a': 'Guangxi',
+            '\u6d77\u5357\u7701': 'Hainan',
+            '\u91cd\u5e86\u5e02': 'Chongqing',
+            '\u56db\u5ddd\u7701': 'Sichuan',
+            '\u8d35\u5dde\u7701': 'Guizhou',
+            '\u4e91\u5357\u7701': 'Yunnan',
+            '\u897f\u85cf\u81ea\u6cbb\u533a': 'Tibet',
+            '\u9655\u897f\u7701': 'Shaanxi',
+            '\u7518\u8083\u7701': 'Gansu',
+            '\u9752\u6d77\u7701': 'Qinghai',
+            '\u5b81\u590f\u56de\u65cf\u81ea\u6cbb\u533a': 'Ningxia',
+            '\u65b0\u7586\u7ef4\u543e\u5c14\u81ea\u6cbb\u533a': 'Xinjiang',
+            '\u53f0\u6e7e\u7701': 'Taiwan',
+            '\u9999\u6e2f\u7279\u522b\u884c\u653f\u533a': 'Hong Kong',
+            '\u6fb3\u95e8\u7279\u522b\u884c\u653f\u533a': 'Macao'
         };
 
         function openPhotoPopup(photoKey) {
@@ -386,11 +422,11 @@
             
             // China (Full territory including Taiwan, HK, Macao, Nanhai)
             ...[
-                '北京市', '天津市', '河北省', '山西省', '内蒙古自治区', '辽宁省', '吉林省', '黑龙江省', 
-                '上海市', '江苏省', '浙江省', '安徽省', '福建省', '江西省', '山东省', '河南省', '湖北省', 
-                '湖南省', '广东省', '广西壮族自治区', '海南省', '重庆市', '四川省', '贵州省', '云南省', 
-                '西藏自治区', '陕西省', '甘肃省', '青海省', '宁夏回族自治区', '新疆维吾尔自治区', 
-                '台湾省', '香港特别行政区', '澳门特别行政区'
+                '\u5317\u4eac\u5e02', '\u5929\u6d25\u5e02', '\u6cb3\u5317\u7701', '\u5c71\u897f\u7701', '\u5185\u8499\u53e4\u81ea\u6cbb\u533a', '\u8fbd\u5b81\u7701', '\u5409\u6797\u7701', '\u9ed1\u9f99\u6c5f\u7701',
+                '\u4e0a\u6d77\u5e02', '\u6c5f\u82cf\u7701', '\u6d59\u6c5f\u7701', '\u5b89\u5fbd\u7701', '\u798f\u5efa\u7701', '\u6c5f\u897f\u7701', '\u5c71\u4e1c\u7701', '\u6cb3\u5357\u7701', '\u6e56\u5317\u7701',
+                '\u6e56\u5357\u7701', '\u5e7f\u4e1c\u7701', '\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a', '\u6d77\u5357\u7701', '\u91cd\u5e86\u5e02', '\u56db\u5ddd\u7701', '\u8d35\u5dde\u7701', '\u4e91\u5357\u7701',
+                '\u897f\u85cf\u81ea\u6cbb\u533a', '\u9655\u897f\u7701', '\u7518\u8083\u7701', '\u9752\u6d77\u7701', '\u5b81\u590f\u56de\u65cf\u81ea\u6cbb\u533a', '\u65b0\u7586\u7ef4\u543e\u5c14\u81ea\u6cbb\u533a',
+                '\u53f0\u6e7e\u7701', '\u9999\u6e2f\u7279\u522b\u884c\u653f\u533a', '\u6fb3\u95e8\u7279\u522b\u884c\u653f\u533a'
             ].map(name => ({
                 name: name,
                 itemStyle: { areaColor: '#ffcccc' } // Light red
@@ -399,59 +435,59 @@
 
         const visitedCities = [
             // Asia & Middle East
-            { name: 'Yemen 也门', value: [44.2066, 15.3694] },
-            { name: 'Tehran, Iran 伊朗德黑兰', value: [51.3890, 35.6892] },
-            { name: 'Jakarta, Indonesia 印尼雅加达', value: [106.8229, -6.2088] },
-            { name: 'Kathmandu, Nepal 尼泊尔加德满都', value: [85.3240, 27.7172] },
-            { name: 'Islamabad, Pakistan 巴基斯坦伊斯兰堡', value: [73.0479, 33.6844] },
-            { name: 'Thailand 泰国', value: [100.5018, 13.7563] },
-            { name: 'Dubai 迪拜', value: [55.2708, 25.2048] },
-            { name: 'Seoul, Korea 韩国首尔', value: [126.9780, 37.5665] },
-            { name: 'Malaysia 马来西亚', value: [101.6869, 3.1390] },
+            { name: 'Sana\'a, Yemen', value: [44.1910, 15.3694] },
+            { name: 'Tehran, Iran', value: [51.3890, 35.6892] },
+            { name: 'Jakarta, Indonesia', value: [106.8229, -6.2088] },
+            { name: 'Kathmandu, Nepal', value: [85.3240, 27.7172] },
+            { name: 'Islamabad, Pakistan', value: [73.0479, 33.6844] },
+            { name: 'Bangkok, Thailand', value: [100.5018, 13.7563] },
+            { name: 'Dubai', value: [55.2708, 25.2048] },
+            { name: 'Seoul, Korea', value: [126.9780, 37.5665] },
+            { name: 'Kuala Lumpur, Malaysia', value: [101.6869, 3.1390] },
 
             // Europe
-            { name: 'Budapest, Hungary 匈牙利布达佩斯', value: [19.0402, 47.4979] },
-            { name: 'Rome, Italy 意大利罗马', value: [12.4964, 41.9028] },
-            { name: 'Cagliari, Italy 意大利卡利亚里', value: [9.1110, 39.2238] }, // 意大利撒丁岛最南端
-            { name: 'Belgium 比利时', value: [4.3517, 50.8503] },
-            { name: 'Sweden 瑞典首都斯德哥尔摩', value: [18.0686, 59.3293] },
-            { name: 'Karlskrona, Sweden 瑞典卡尔斯克鲁纳', value: [15.5866, 56.1612] }, // 瑞典南部城市
-            { name: 'Denmark 丹麦', value: [12.5683, 55.6761] },
-            { name: 'France 法国', value: [2.3522, 48.8566] },
+            { name: 'Budapest, Hungary', value: [19.0402, 47.4979] },
+            { name: 'Rome, Italy', value: [12.4964, 41.9028] },
+            { name: 'Cagliari, Italy', value: [9.1110, 39.2238] }, // 意大利撒丁岛最南端
+            { name: 'Brussels, Belgium', value: [4.3517, 50.8503] },
+            { name: 'Stockholm, Sweden', value: [18.0686, 59.3293] },
+            { name: 'Karlskrona, Sweden', value: [15.5866, 56.1612] }, // 瑞典南部城市
+            { name: 'Copenhagen, Denmark', value: [12.5683, 55.6761] },
+            { name: 'Paris, France', value: [2.3522, 48.8566] },
 
             // Oceania
-            { name: 'Fiji 斐济', value: [178.0650, -17.7134] },
+            { name: 'Suva, Fiji', value: [178.4419, -18.1248] },
             
-            { name: 'Shanghai 上海', value: [121.4737, 31.2304], target: 'china' },
-            { name: 'Lanzhou 兰州', value: [103.8343, 36.0611], target: 'china' },
-            { name: 'Qinghai 青海', value: [101.7782, 36.6171], target: 'china' },
-            { name: 'Beijing 北京', value: [116.4074, 39.9042], target: 'china' },
-            { name: 'Nanjing 南京', value: [118.7969, 32.0603], target: 'china' },
-            { name: 'Harbin 哈尔滨', value: [126.5350, 45.8028], target: 'china' },
-            { name: 'Nanning, Guangxi 广西南宁', value: [108.3601, 22.8170], target: 'china' },
-            { name: 'Yunnan 云南', value: [102.7123, 25.0406], target: 'china' },
-            { name: 'Jinan 济南', value: [117.1201, 36.6512], target: 'china' },
+            { name: 'Shanghai', value: [121.4737, 31.2304], target: 'china' },
+            { name: 'Lanzhou', value: [103.8343, 36.0611], target: 'china' },
+            { name: 'Qinghai', value: [101.7782, 36.6171], target: 'china' },
+            { name: 'Beijing', value: [116.4074, 39.9042], target: 'china' },
+            { name: 'Nanjing', value: [118.7969, 32.0603], target: 'china' },
+            { name: 'Harbin', value: [126.5350, 45.8028], target: 'china' },
+            { name: 'Nanning, Guangxi', value: [108.3601, 22.8170], target: 'china' },
+            { name: 'Yunnan', value: [102.7123, 25.0406], target: 'china' },
+            { name: 'Jinan', value: [117.1201, 36.6512], target: 'china' },
             
             // New China Points
-            { name: 'Jiangxi 江西', value: [115.8921, 28.6764], target: 'china' }, // 南昌
-            { name: 'Changsha 长沙', value: [112.9388, 28.2282], target: 'china' },
-            { name: 'Wuhan 武汉', value: [114.3055, 30.5928], target: 'china' },
-            { name: 'Chongqing 重庆', value: [106.5516, 29.5630], target: 'china' },
-            { name: 'Chengdu 成都', value: [104.0665, 30.5723], target: 'china' },
-            { name: 'Hangzhou 浙江杭州', value: [120.1551, 30.2741], target: 'china' },
-            { name: 'Chuzhou 安徽滁州', value: [118.3163, 32.2953], target: 'china' },
-            { name: 'Tianjin 天津', value: [117.2009, 39.0841], target: 'china' },
+            { name: 'Jiangxi', value: [115.8921, 28.6764], target: 'china' }, // 南昌
+            { name: 'Changsha', value: [112.9388, 28.2282], target: 'china' },
+            { name: 'Wuhan', value: [114.3055, 30.5928], target: 'china' },
+            { name: 'Chongqing', value: [106.5516, 29.5630], target: 'china' },
+            { name: 'Chengdu', value: [104.0665, 30.5723], target: 'china' },
+            { name: 'Hangzhou', value: [120.1551, 30.2741], target: 'china' },
+            { name: 'Chuzhou', value: [118.3163, 32.2953], target: 'china' },
+            { name: 'Tianjin', value: [117.2009, 39.0841], target: 'china' },
             
             // More China Points
-            { name: 'Hong Kong 香港', value: [114.1694, 22.3193], target: 'china' },
-            { name: 'Macao 澳门', value: [113.5430, 22.1987], target: 'china' },
-            { name: 'Zhuhai 珠海', value: [113.5767, 22.2707], target: 'china' },
-            { name: 'Guangzhou 广州', value: [113.2644, 23.1291], target: 'china' },
-            { name: 'Taiyuan 山西太原', value: [112.5489, 37.8706], target: 'china' },
-            { name: 'Xi\'an 陕西西安', value: [108.9398, 34.3413], target: 'china' },
-            { name: 'Guiyang 贵州贵阳', value: [106.6302, 26.6477], target: 'china' },
-            { name: 'Xiamen 福建厦门', value: [118.0894, 24.4798], target: 'china' },
-            { name: 'Shenyang 辽宁沈阳', value: [123.4315, 41.8057], target: 'china' }
+            { name: 'Hong Kong', value: [114.1694, 22.3193], target: 'china' },
+            { name: 'Macao', value: [113.5430, 22.1987], target: 'china' },
+            { name: 'Zhuhai', value: [113.5767, 22.2707], target: 'china' },
+            { name: 'Guangzhou', value: [113.2644, 23.1291], target: 'china' },
+            { name: 'Taiyuan', value: [112.5489, 37.8706], target: 'china' },
+            { name: 'Xi\'an', value: [108.9398, 34.3413], target: 'china' },
+            { name: 'Guiyang', value: [106.6302, 26.6477], target: 'china' },
+            { name: 'Xiamen', value: [118.0894, 24.4798], target: 'china' },
+            { name: 'Shenyang', value: [123.4315, 41.8057], target: 'china' }
         ];
 
         function getMapOption(data) {
@@ -493,7 +529,7 @@
                             }
                             return params.data.name;
                         }
-                        return params.name;
+                        return regionNameMap[params.name] || params.name;
                     }
                 },
                 geo: {
