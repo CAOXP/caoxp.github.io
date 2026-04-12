@@ -61,7 +61,11 @@ header img, footer img {
     width: 15vw; /* Sidebar width as a percentage of viewport width */
     background-color: var(--sidebar-bg-color);
     padding: 10px;
-    /* We remove height: fit-content; so it naturally stretches to flex container height */
+    position: sticky;
+    top: 10px;
+    align-self: flex-start;
+    max-height: calc(100vh - 20px);
+    overflow-y: auto;
 }
 
 .content {
@@ -85,7 +89,10 @@ header img, footer img {
     .sidebar {
         width: 100%; /* Full width sidebar on small screens */
         position: relative; /* Position relative */
+        top: auto;
         height: auto; /* Adjust height */
+        max-height: none;
+        overflow-y: visible;
         margin-bottom: 20px; /* Space between sidebar and content */
     }
 
