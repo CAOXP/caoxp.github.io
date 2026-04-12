@@ -7,32 +7,25 @@ const files = fs.readdirSync(directory);
 const htmlFiles = files.filter(f => f.endsWith('.html'));
 
 let updatedCount = 0;
-
+const peopleRow = '<tr><td class="menu"><a href="people.html">People</a></td></tr>';
+const perspectivesRow = '<tr><td class="menu"><a href="perspective.html">Perspectives</a></td></tr>';
 for (const file of htmlFiles) {
     const filePath = path.join(directory, file);
     let content = fs.readFileSync(filePath, 'utf8');
-    
-    // Check if Travel is already in the menu
-    if (content.includes('<a href="travel.html">Travel</a>')) {
-        continue;
+
+    const originalContent = content;
+    content = content.replace(/href="blog\.html/g, 'href="perspective.html');
+
+    if (content.includes(peopleRow) && !content.includes(perspectivesRow)) {
+        const replacementString = `${peopleRow}\n                    ${perspectivesRow}`;
+        content = content.replace(peopleRow, replacementString);
     }
-    
-    // The typical menu structure we've seen:
-    // <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
-    // <tr><td class="menu"><a href="people.html">People</a></td></tr>
-    
-    // We will append the Travel link right after People
-    const targetString = '<tr><td class="menu"><a href="people.html">People</a></td></tr>';
-    const replacementString = targetString + '\n                    <tr><td class="menu"><a href="travel.html">Travel</a></td></tr>';
-    
-    if (content.includes(targetString)) {
-        content = content.replace(targetString, replacementString);
+
+    if (content !== originalContent) {
         fs.writeFileSync(filePath, content, 'utf8');
         console.log(`Updated menu in ${file}`);
         updatedCount++;
-    } else {
-        console.log(`Target menu item not found in ${file}`);
     }
 }
 
-console.log(`Successfully updated navigation menu in ${updatedCount} files.`);
+console.log(`Successfully updated perspective links in ${updatedCount} files.`);
