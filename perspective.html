@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funding - Xiangpeng CAO</title>
-    <meta name="keywords" content="Xiangpeng CAO, Funding">
-    <meta name="description" content="Funding of Xiangpeng CAO">
+    <title>Perspectives | 曹香鹏</title>
+    <meta name="keywords" content="Xiangpeng CAO, Perspectives, Notes, Research">
+    <meta name="description" content="Perspective articles, research notes, and field observations by Xiangpeng CAO.">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0, max-image-preview:none">
     <link href="images/style.css" rel="stylesheet" type="text/css">
     <style>
         .back-to-top {
@@ -41,12 +42,11 @@
                 </tr>
             </table>
         </header>
-
         <div class="main-content">
             <nav class="sidebar">
                 <table class="nav-table">
                     <tr align="center">
-                        <td><img src="images/cxp.png" alt="Xiangpeng CAO" width="180" ></td>
+                        <td><img src="images/cxp.png" alt="Xiangpeng CAO" width="180"></td>
                     </tr>
                     <tr align="center">
                         <td><a href="index.html">Xiangpeng CAO<BR><BR>曹香鹏</a></td>
@@ -67,49 +67,23 @@
                 </table>
             </nav>
 
-
             <main class="content">
-                <section>
-                    <h1 class="articletitle">Funding</h1>
-                    <HR>
-                    <div class="publication-item">
-                        <img src="images/pubs/LOGO3.png" class="publication-image" alt="Publication 1" style="width: 100px; height: auto ">
-                        <div class="publication-info">
-                            <strong class="publication-title">
-                                数据物理融合驱动的混凝土流变感知（2026-2029）
-                            </strong>
-                            <br>
-                            <br>
-                            国家自然科学基金面上项目 | 62XX15 | 国家自然科学基金委员会
-                        </div>
-                    </div>
-                    <HR>
-                    <div class="publication-item">
-                        <img src="images/pubs/F202202.png" class="publication-image" alt="Publication 1" style="width: 100px; height: auto ">
-                        <div class="publication-info">
-                            <strong class="publication-title">
-                                复杂荷载下的混凝土耐久性
-                            </strong>
-                            <br>
-                            <br>
-                            重点研发项目子课题 | 2022XXXXX000903-02 | 国家科技部
-                        </div>
-                    </div>
-                    <HR>
-                    <div class="publication-item">
-                        <img src="images/pubs/F202202.png" class="publication-image" alt="Publication 1" style="width: 100px; height: auto ">
-                        <div class="publication-info">
-                            <strong class="publication-title">
-                                超长寿命隧道衬砌混凝土结构耐久性一体化提升技术
-                            </strong>
-                            <br>
-                            <br>
-                            重点研发项目子课题 | 2021XXXXX01002-05 | 国家科技部 | <strong> 已结题 </strong>
-                        </div>
-                    </div>
+                <section >
+                    <p class="articletitle">Perspectives</p>
+                </section>
+
+                <section class="perspective-stack">
+                    <article id="perspective-sensing" class="perspective-item">
+                        <h2 class="perspective-title">具身智能建造，不只是自动化升级，而是让建造具备感知能力</h2>
+                        <p class="blog-card-meta">2026-04-12</p>
+                        <p class="perspective-text" id="perspective-sensing-text"></p>
+                    </article>
+
+
                 </section>
             </main>
         </div>
+
         <footer>
             <p class="foot">曹香鹏 2026 Designed with AI &copy; CAOXP</p>
         </footer>
@@ -117,8 +91,18 @@
     <a href="#top" class="back-to-top" id="backToTop">Back to Top ↑</a>
 
     <script>
+        const protectedTexts = {
+            'perspective-sensing-text': [20855,36523,26234,33021,24314,36896,30340,24847,20041,65292,19981,21482,26159,35753,26426,22120,36827,20837,26045,24037,29616,22330,65292,32780,26159,35753,24863,30693,12289,20915,31574,19982,25191,34892,22312,24314,36896,36807,31243,20013,24418,25104,38381,29615,12290,26410,26469,30340,26234,33021,24314,36896,19981,24212,21482,20572,30041,22312,33258,21160,21270,35774,22791,23618,38754,65292,26356,20851,38190,30340,26159,25226,26045,24037,32463,39564,12289,26448,26009,21453,39304,21644,29616,22330,32422,26463,36716,21270,25104,26426,22120,33021,22815,29702,35299,24182,25345,32493,35843,25972,30340,34892,21160,33021,21147,12290,30495,27491,20540,24471,20851,27880,30340,65292,19981,26159,21738,19968,21488,35774,22791,26356,20687,20154,65292,32780,26159,21738,19968,22871,31995,32479,33021,22815,22312,22797,26434,24037,20917,19979,31283,23450,22320,23436,25104,21028,26029,12289,21709,24212,19982,24314,36896,12290]
+        };
+
+        Object.entries(protectedTexts).forEach(([id, codePoints]) => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = codePoints.map(codePoint => String.fromCodePoint(codePoint)).join('');
+            }
+        });
+
         const backToTop = document.getElementById('backToTop');
-        
         window.addEventListener('scroll', function() {
             if (window.scrollY > window.innerHeight) {
                 backToTop.classList.add('show');
