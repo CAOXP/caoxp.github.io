@@ -44,6 +44,13 @@ header, footer {
     padding: 10px 0;
 }
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: var(--bg-color);
+}
+
 header .logo-table {
     margin-left: 0;    /* 移除左边距使其真正靠左 */
 }
@@ -62,9 +69,9 @@ header img, footer img {
     background-color: var(--sidebar-bg-color);
     padding: 10px;
     position: sticky;
-    top: 10px;
+    top: 80px;
     align-self: flex-start;
-    max-height: calc(100vh - 20px);
+    max-height: calc(100vh - 90px);
     overflow-y: auto;
 }
 
@@ -86,6 +93,10 @@ header img, footer img {
 }
 
 @media (max-width: 768px) {
+    header {
+        position: relative;
+    }
+
     .sidebar {
         width: 100%; /* Full width sidebar on small screens */
         position: relative; /* Position relative */
