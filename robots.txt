@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap 规范要求必须是绝对路径。
+# 如果你有双域名，建议这里写你的“主域名”，从而将搜索引擎权重集中，避免被判定为重复内容惩罚。
+Sitemap: https://caoxp.github.io/sitemap.xml
