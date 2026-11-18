@@ -7,28 +7,6 @@
     <meta name="keywords" content="Xiangpeng CAO">
     <meta name="description" content="Xiangpeng CAO">
     <link href="images/style.css" rel="stylesheet" type="text/css">
-    <style>
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #666;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-        .back-to-top:hover {
-            opacity: 1;
-        }
-        .back-to-top.show {
-            opacity: 0.7;
-            visibility: visible;
-        }
-    </style>
 </head>
 <body>
     <div id="top"></div>
@@ -62,13 +40,15 @@
                     <tr><td class="menu"><a href="patents.html">Patents</a></td></tr>
                     <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
                     <tr><td class="menu"><a href="people.html">People</a></td></tr>
+                    <tr><td class="menu"><a href="perspective.html">Perspectives</a></td></tr>
+
                     <tr><td class="menu"><a href="personal.html">Personal</a></td></tr>
                 </table>
             </nav>
 
             <main class="content">
-                <section>
-                    <h1 class="articletitle">Research Interests</h1>
+                <section class="rs-section">
+                    <h1 class="articletitle rs-heading">Research Interests</h1>
                     <p class="articlesubtitle">
                     　　Intelligent construction, Smart sensing
                     </p>
@@ -84,8 +64,8 @@
                     <br>
                 </section>
                 
-                <section>
-                    <h1 class="articletitle">Education</h1>
+                <section class="rs-section">
+                    <h1 class="articletitle rs-heading">Education</h1>
                     <ul class="">
                         <li>2013-2017, Ph.D., Civil Engineering, Hong Kong University of Science and Technology</li>
                         <br>
@@ -94,8 +74,8 @@
                         <br>
                     </ul>
                 </section>
-                <section>
-                    <h1 class="articletitle">Highlights</h1>
+                <section class="rs-section">
+                    <h1 class="articletitle rs-heading">Highlights</h1>
                     <ul class="articlesubtitle">
                         <li>21 February 2025, patent <i>一种仿生房屋建造方法及系统</i> granted by CNIPA.</li>
                         <li>6 December 2024, paper <a href="https://doi.org/10.1016/j.autcon.2024.105923" target="_blank"><i>in-situ mesh fabrication</i></a> accepted by TOP Journal <i>Automation in Construction</i>.</li>
@@ -110,7 +90,7 @@
             <p class="foot">曹香鹏 2026 Designed with AI &copy; CAOXP</p>
         </footer>
     </div>
-    <a href="#top" class="back-to-top" id="backToTop">Back to Top ↑</a>
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
     <script>
         // 获取按钮元素
@@ -126,5 +106,6 @@
             }
         });
     </script>
+    <script src="images/site.js"></script>
 </body>
 </html>
