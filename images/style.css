@@ -65,14 +65,20 @@ header img, footer img {
 }
 
 .sidebar {
+    box-sizing: border-box;
     width: 15vw; /* Sidebar width as a percentage of viewport width */
     background-color: var(--sidebar-bg-color);
-    padding: 10px;
+    padding: 16px 12px;
+    margin: 12px 12px 12px 0;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
     position: sticky;
-    top: 80px;
+    top: 70px;
     align-self: flex-start;
     max-height: calc(100vh - 90px);
     overflow-y: auto;
+    scrollbar-width: thin;
 }
 
 .content {
@@ -104,7 +110,7 @@ header img, footer img {
         height: auto; /* Adjust height */
         max-height: none;
         overflow-y: visible;
-        margin-bottom: 20px; /* Space between sidebar and content */
+        margin: 0 0 20px; /* Space between sidebar and content */
     }
 
     .content {
@@ -119,22 +125,60 @@ nav .nav-table {
     font-family: "Times New Roman", sans-serif;
     font-weight: bold;
     font-size: 18px;
+    border-collapse: separate;
+    border-spacing: 0 2px;
+}
+
+nav .nav-table img {
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+nav .nav-table img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+nav .nav-table td:not(.menu) a {
+    color: var(--text-color);
+    text-decoration: none;
+    line-height: 1.3;
+    transition: color 0.2s;
+}
+
+nav .nav-table td:not(.menu) a:hover {
+    color: #EE7700;
+}
+
+nav .nav-table hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(238, 119, 0, 0.5), transparent);
+    margin: 14px 0;
 }
 
 nav .menu a {
     display: block;
-    padding: 5px 0 5px 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: 3px solid transparent;
     color: var(--link-color);
     font-family: "Times New Roman", sans-serif;
     font-size: 16px;
     text-decoration: none;
     font-weight: bold;
     line-height: 20px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 nav .menu a:hover {
-    color: var(--link-hover-color);
+    color: #EE7700;
+    background-color: rgba(238, 119, 0, 0.10);
+    border-left-color: #EE7700;
+    transform: translateX(3px);
 }
+
 
 .articlesubtitle {
     color: var(--text-color);
@@ -533,5 +577,435 @@ footer p {
 
     .perspective-title {
         font-size: 21px;
+    }
+}
+
+/* ============================================================
+   Shared page components (rs-*) — used by all site pages
+   ============================================================ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.rs-section {
+    margin-bottom: 40px;
+}
+
+h1.rs-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    font-size: 24px;
+    letter-spacing: 0.01em;
+}
+
+h1.rs-heading.h2 {
+    font-size: 20px;
+    margin: 26px 0 14px;
+}
+
+.rs-heading::before {
+    content: "";
+    width: 6px;
+    height: 24px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, #EE7700, #ffb56b);
+    flex: none;
+}
+
+h1.rs-heading.h2::before {
+    height: 20px;
+}
+
+.rs-heading img {
+    height: 22px;
+    vertical-align: middle;
+}
+
+/* Intro / overview gradient panel */
+.rs-overview {
+    padding: 22px 26px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(238, 119, 0, 0.10), rgba(0, 123, 255, 0.07));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.rs-overview p {
+    margin: 0 0 12px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.rs-overview p:last-child {
+    margin-bottom: 0;
+}
+
+.rs-overview strong {
+    color: #EE7700;
+}
+
+/* Interest cards */
+.rs-interests {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 18px;
+}
+
+.rs-interest-card {
+    padding: 20px 22px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background-color: var(--publication-bg-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.rs-interest-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px var(--hover-shadow-color);
+}
+
+.rs-interest-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 14px;
+    font-size: 17px;
+    color: var(--text-color);
+}
+
+.rs-interest-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    flex: none;
+    border-radius: 50%;
+    background: #EE7700;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.rs-interest-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.rs-interest-card li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: normal;
+}
+
+.rs-interest-card li:last-child {
+    margin-bottom: 0;
+}
+
+.rs-interest-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #EE7700;
+}
+
+/* Year / section timeline badge */
+.rs-year {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 30px 0 16px;
+}
+
+.rs-year:first-child {
+    margin-top: 0;
+}
+
+.rs-year span {
+    padding: 3px 14px;
+    border-radius: 999px;
+    background: rgba(238, 119, 0, 0.14);
+    color: #EE7700;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.rs-year::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(238, 119, 0, 0.25);
+}
+
+/* Item cards (publications / patents / projects / funding) */
+.rs-pub {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border-left: 3px solid transparent;
+    background-color: var(--publication-bg-color);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background-color 0.3s;
+}
+
+.rs-pub:hover {
+    transform: translateY(-2px);
+    border-left-color: #EE7700;
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 8px 18px var(--hover-shadow-color);
+}
+
+.rs-pub img {
+    width: 150px;
+    height: 100px;
+    flex: none;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    transition: transform 0.25s;
+}
+
+.rs-pub img.rs-logo {
+    object-fit: contain;
+    background: #fff;
+    padding: 6px;
+}
+
+.rs-pub:hover img {
+    transform: scale(1.05);
+}
+
+.rs-pub-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.rs-pub-title {
+    display: block;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.rs-pub-title a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.rs-pub-title a:hover {
+    text-decoration: underline;
+}
+
+.rs-pub-sub {
+    display: block;
+    font-size: 14.5px;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+.rs-pub-authors {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.85;
+}
+
+.rs-pub-meta {
+    margin: 8px 0 0;
+    font-size: 13px;
+}
+
+.rs-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: rgba(0, 123, 255, 0.12);
+    color: var(--link-color);
+    font-size: 12.5px;
+    font-weight: bold;
+}
+
+.rs-tag.orange {
+    background: rgba(238, 119, 0, 0.14);
+    color: #EE7700;
+}
+
+.rs-tag.green {
+    background: rgba(22, 160, 133, 0.14);
+    color: #16a085;
+}
+
+.rs-tag.gray {
+    background: rgba(128, 128, 128, 0.15);
+    color: var(--foot-text-color);
+}
+
+.rs-date {
+    margin-left: 8px;
+    color: var(--foot-text-color);
+}
+
+/* Plain list card (early works, education, news, lists) */
+.rs-early {
+    padding: 18px 24px;
+    border-radius: 10px;
+    background-color: var(--publication-bg-color);
+}
+
+.rs-early ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.rs-early li {
+    margin-bottom: 10px;
+    font-size: 14.5px;
+    line-height: 1.7;
+}
+
+.rs-early li:last-child {
+    margin-bottom: 0;
+}
+
+/* News / highlight list with leading date */
+.rs-news {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.rs-news li {
+    position: relative;
+    padding: 10px 0 10px 14px;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.12);
+}
+
+.rs-news li:last-child {
+    border-bottom: none;
+}
+
+.rs-news li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #EE7700;
+}
+
+.rs-news .rs-news-date {
+    color: #EE7700;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* People rows */
+.rs-people {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.rs-person {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background-color: var(--publication-bg-color);
+    border-left: 3px solid rgba(238, 119, 0, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.rs-person:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px var(--hover-shadow-color);
+}
+
+.rs-person:hover strong {
+    color: #EE7700;
+}
+
+.rs-person strong {
+    font-size: 15.5px;
+    transition: color 0.2s;
+}
+
+.rs-person .rs-person-meta {
+    font-size: 13px;
+    color: var(--foot-text-color);
+}
+
+/* Back to top (shared) */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    background: #EE7700;
+    color: #fff;
+    text-decoration: none;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+    z-index: 30;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+.back-to-top.show {
+    opacity: 0.85;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .rs-pub {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .rs-pub img {
+        width: 100%;
+        height: 180px;
+    }
+
+    .rs-overview {
+        padding: 16px 18px;
+    }
+
+    .rs-people {
+        grid-template-columns: 1fr;
     }
 }

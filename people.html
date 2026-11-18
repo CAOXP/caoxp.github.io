@@ -7,28 +7,6 @@
     <meta name="keywords" content="Xiangpeng CAO">
     <meta name="description" content="Xiangpeng CAO">
     <link href="images/style.css" rel="stylesheet" type="text/css">
-    <style>
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #666;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-        .back-to-top:hover {
-            opacity: 1;
-        }
-        .back-to-top.show {
-            opacity: 0.7;
-            visibility: visible;
-        }
-    </style>
 </head>
 <body>
     <div id="top"></div>
@@ -63,63 +41,49 @@
                     <tr><td class="menu"><a href="patents.html">Patents</a></td></tr>
                     <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
                     <tr><td class="menu"><a href="people.html">People</a></td></tr>
-                    
+                    <tr><td class="menu"><a href="perspective.html">Perspectives</a></td></tr>
+
                     <tr><td class="menu"><a href="personal.html">Personal</a></td></tr>
                 </table>
             </nav>
 
             <main class="content">
-                <section>
-                    <h1 class="articletitle">Recruitment</h1>
-                    <p>Welcome highly motivated undergraduate students to join our team. <br>
-                        Please send me your CV on caoxp[@]szu[dot]edu[dot]cn. <br>
-                        Outstanding students can be introduced to top colleges for Ph.D. studies.</p>
-                    <br>
-                    <strong>Preferred</strong>  background:
-                    <ul>
-                        <li> Control Science and Engineering
-                        <li> Computer Science and Technology
-                        <li> Artificial Intelligence
-                        <li> Fluid Mechanics
-                        <li> Information and Communication Engineering
-                    </ul>
+                <section class="rs-section">
+                    <h1 class="articletitle rs-heading">Recruitment</h1>
+                    <div class="rs-overview">
+                        <p>We welcome highly motivated students to join our team:
+                            <br>&gt; PhD Program in Intelligent Construction / 智能建造<strong>博士</strong>研究生
+                            <br>&gt; Master's Program in Intelligent Construction / 智能建造<strong>硕士</strong>研究生
+                            <br>&gt; Undergraduate Research Interns / 本科生科研实习
+                        </p>
+                        <p>Please send your CV to <strong>caoxp[@]szu.edu.cn</strong>. <BR>Outstanding students can be recommended to top universities for Ph.D. studies.</p>
+                    </div>
+                    <h1 class="articletitle rs-heading h2">Preferred background</h1>
+                    <div class="rs-early">
+                        <ul>
+                            <li> Control Science and Engineering</li>
+                            <li> Computer Science and Technology</li>
+                            <li> Artificial Intelligence</li>
+                            <li> Fluid Mechanics</li>
+                            <li> Information and Communication Engineering</li>
+                        </ul>
+                    </div>
                 </section>
                 
-                <section>
-                    <h1 class="articletitle">Current</h1>
-                    <div class="publication-item">
-                        <div class="publication-info">
-                            <strong class="people-title">Yuting ZHANG</strong> 2026
-                        </div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-info">
-                            <strong class="people-title">Changliang WU</strong> 2025
-                        </div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-info">
-                            <strong class="people-title">Jianpeng YU</strong> 2025
-                        </div>
+                <section class="rs-section">
+                    <h1 class="articletitle rs-heading h2">Current</h1>
+                    <div class="rs-people">
+                        <div class="rs-person"><strong>Yuting ZHANG</strong><span class="rs-person-meta">2026</span></div>
+                        <div class="rs-person"><strong>Changliang WU</strong><span class="rs-person-meta">2025</span></div>
+                        <div class="rs-person"><strong>Jianpeng YU</strong><span class="rs-person-meta">2025</span></div>
                     </div>
 
-                    <h1 class="articletitle">Graduated</h1>
-                    <div class="publication-item">
-                        <div class="publication-info">
-                            <strong class="people-title">Lele CAO</strong> <span class="title" style="color: rgb(145, 142, 142);">Foshan</span>, Graduated in 2025
-                        </div>
+                    <h1 class="articletitle rs-heading h2">Graduated</h1>
+                    <div class="rs-people">
+                        <div class="rs-person"><strong>Lele CAO</strong><span class="rs-person-meta">Foshan </span></div>
+                        <div class="rs-person"><strong>Shuoli WU</strong><span class="rs-person-meta">Shenzhen</span></div>
+                        <div class="rs-person"><strong>Shiheng YU</strong><span class="rs-person-meta">Hangzhou</span></div>
                     </div>
-                    <div class="publication-item">
-                        <div class="publication-info">
-                            <strong class="people-title">Shuoli WU</strong> <span class="title" style="color: rgb(145, 142, 142);">Shenzhen</span>  Graduated in 2024
-                        </div>
-                    </div>                    
-                    <div class="publication-item">
-                        <div class="publication-info">
-                            <strong class="people-title">Shiheng YU</strong> <span class="title"style="color: rgb(145, 142, 142);">Hangzhou</span>  Graduated in 2023
-                        </div>
-                    </div>
-
                 </section>
             </main>
         </div>
@@ -129,7 +93,7 @@
                 <br>caoxp <a href="https://facultyce.szu.edu.cn/caoxiangpeng/">@SZU</a></p>
         </footer>
     </div>
-    <a href="#top" class="back-to-top" id="backToTop">Back to Top ↑</a>
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
     <script>
         // 获取按钮元素
@@ -145,5 +109,6 @@
             }
         });
     </script>
+    <script src="images/site.js"></script>
 </body>
 </html>
