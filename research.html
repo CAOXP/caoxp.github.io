@@ -11,13 +11,11 @@
 <body>
     <div id="top"></div>
     <div class="container">
-        <header>
-            <table class="logo-table">
-                <tr>
-                    <td><img src="images/cctelogo.png" alt="土木与交通工程学院" height="50"></td>
-                    <td><img src="images/szu.jpg" alt="Shenzhen University" height="50"></td>
-                </tr>
-            </table>
+        <header class="site-banner">
+            <div class="banner-inner">
+                <p class="banner-kicker"><span class="banner-led"></span>College of Civil and Transportation Engineering &middot; Shenzhen University </p>
+                <div class="banner-title">Intelligent Construction &amp; Embodied Intelligence</div>
+            </div>
         </header>
         <div class="main-content">
             <nav class="sidebar">
@@ -40,8 +38,6 @@
                     <tr><td class="menu"><a href="patents.html">Patents</a></td></tr>
                     <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
                     <tr><td class="menu"><a href="people.html">People</a></td></tr>
-                    <tr><td class="menu"><a href="perspective.html">Perspectives</a></td></tr>
-
                     <tr><td class="menu"><a href="personal.html">Personal</a></td></tr>
                 </table>
             </nav>
@@ -51,21 +47,20 @@
                     <h1 class="articletitle rs-heading">Research Interests</h1>
                     <div class="rs-interests">
                         <div class="rs-interest-card">
-                            <h2><span class="rs-interest-num">1</span>Non-contact Sensing for Construction Materials 无损感知</h2>
+                            <h2><span class="rs-interest-num">1</span>Non-contact Perception for Construction Materials</h2>
                             <ul>
-                                <li><strong>Non-contact Rheology Measurement:</strong> Measure the rheological properties of construction materials, such as concrete, without physical contact. This enables real-time monitoring of material performance during mixing, transportation, and placement.
-                                    <br><strong>非接触流变测量：</strong>在不与混凝土等建筑材料物理接触的情况下测量其流变特性。应用于混凝土搅拌、运输和浇筑过程中实时监测材料性能。</li>
-                                <li><strong>Visual Perception for Embodied Intelligence:</strong> Researching the use of visual technologies to achieve non-contact monitoring and control of 3D printed concrete.
-                                    <br><strong>面向具身智能的视觉感知：</strong>研究利用视觉技术实现对3D打印混凝土的非接触监测和控制。</li>
+                                <li><strong>Non-contact Rheology Measurement;</strong> 
+                                <li><strong>Visual Perception for Embodied Intelligence;</strong> 
+                                    
                             </ul>
                         </div>
                         <div class="rs-interest-card">
-                            <h2><span class="rs-interest-num">2</span>Concrete 3D Printing 建筑打印</h2>
+                            <h2><span class="rs-interest-num">2</span>Concrete 3D Printing</h2>
                             <ul>
-                                <li><strong>Reinforcement Technology:</strong> Investigating innovative methods to integrate reinforcement into 3D printed concrete structures.
-                                    <br><strong>加固技术：</strong>研究将钢筋整合到3D打印混凝土结构中的创新方法。</li>
-                                <li><strong>Interface Repair:</strong> Investigating innovative methods to repair interfaces in 3D printed concrete structures.
-                                    <br><strong>界面修复：</strong>研究修复3D打印混凝土结构中的界面问题，提高结构的强度和稳定性。</li>
+                                <li><strong>Reinforcement Technology;</strong>
+                                    
+                                <li><strong>Interface Repair;</strong>
+                                    
                             </ul>
                         </div>
                     </div>
@@ -222,22 +217,11 @@
         </div>
 
         <footer>
-            <p class="foot">曹香鹏 2026 Designed with AI &copy; CAOXP</p>
+            <p class="foot">Xiangpeng CAO 2026 Designed with AI &copy; CAOXP</p>
         </footer>
     </div>
     <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
-    <script>
-        const backToTop = document.getElementById('backToTop');
-
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > window.innerHeight) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
-    </script>
     <script src="images/site.js"></script>
 </body>
 </html>
