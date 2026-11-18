@@ -8,183 +8,15 @@
     <meta name="keywords" content="Xiangpeng CAO, Personal Interests, Travel, Books, Hobbies">
     <meta name="description" content="Personal interests, travel, books, and hobbies of Xiangpeng CAO">
     <link href="images/style.css" rel="stylesheet" type="text/css">
-    <style>
-        .tags-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .tag {
-            background-color: #f0f4f8;
-            color: #2c3e50;
-            padding: 8px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 14px;
-            border: 1px solid #dce4ec;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .tag:hover {
-            background-color: #3498db;
-            color: white;
-            border-color: #3498db;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .tag.active {
-            background-color: #2c3e50;
-            color: white;
-            border-color: #2c3e50;
-        }
-        .place-section {
-            margin-bottom: 40px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            display: none; /* Hidden by default for JS filtering, or shown if all */
-        }
-        .place-section.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .place-title {
-            color: #2c3e50;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        .place-desc {
-            color: #666;
-            line-height: 1.6;
-        }
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-        .photo-placeholder {
-            width: 100%;
-            height: 150px;
-            background-color: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #adb5bd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        
-        /* Photo Popup Styles */
-        .photo-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 800;
-        }
-        
-        .photo-popup.active {
-            display: flex;
-        }
-        
-        .photo-popup-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-        
-        .photo-popup img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 8px;
-        }
-        
-        .photo-popup-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        
-        .photo-popup-caption {
-            color: white;
-            text-align: center;
-            margin-top: 15px;
-            font-size: 16px;
-        }
-
-        .map-container {
-            width: 100%;
-            height: calc(100vh - 120px);
-            min-height: 600px;
-            border-radius: 8px;
-            overflow: hidden;
-            background: transparent;
-            box-shadow: none;
-            margin: 20px auto;
-        }
-
-        .travel-layout {
-            display: flex;
-            max-width: 1000px;
-            margin: 0;
-            padding: 0 20px;
-            gap: 20px;
-        }
-
-        #echarts-map {
-            flex: 1;
-            width: 100%;
-            height: 600px;
-            margin-top: 20px;
-            background-color: transparent;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .right-sidebar {
-            width: 250px;
-            flex-shrink: 0;
-            margin-top: 20px;
-            /* Optional: Add some styling if needed later, right now it just acts as an empty space filler */
-        }
-
-        /* Responsive styles */
-        @media (max-width: 900px) {
-            .map-container {
-                height: 500px;
-                min-height: auto;
-            }
-        }
-    </style>
 </head>
 <body>
     <div id="top"></div>
     <div class="container">
-        <header>
-            <table class="logo-table">
-                <tr>
-                    <td><img src="images/cctelogo.png" alt="College of Civil and Transportation Engineering" height="50"></td>
-                    <td><img src="images/szu.jpg" alt="Shenzhen University" height="50"></td>
-                </tr>
-            </table>
+        <header class="site-banner">
+            <div class="banner-inner">
+                <p class="banner-kicker"><span class="banner-led"></span>College of Civil and Transportation Engineering &middot; Shenzhen University</p>
+                <div class="banner-title">Intelligent Construction &amp; Embodied Intelligence</div>
+            </div>
         </header>
         <div class="main-content">
             <nav class="sidebar">
@@ -207,16 +39,31 @@
                     <tr><td class="menu"><a href="patents.html">Patents</a></td></tr>
                     <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
                     <tr><td class="menu"><a href="people.html">People</a></td></tr>
-                    <tr><td class="menu"><a href="perspective.html">Perspectives</a></td></tr>
-
                     <tr><td class="menu"><a href="personal.html">Personal</a></td></tr>
                 </table>
             </nav>
 
             <main class="content">
+                <section class="rs-section" id="perspectives">
+                    <h1 class="articletitle rs-heading">Perspectives</h1>
+                    <div class="perspective-stack">
+                        <article id="perspective-distill-self" class="perspective-item">
+                            <h2 class="perspective-title">"蒸馏"自己：把个人成熟技能转化为 AI 工作流</h2>
+                            <p class="blog-card-meta">2026-04-09</p>
+                            <p class="perspective-text" id="perspective-distill-self-text"></p>
+                        </article>
+                        <article id="perspective-sensing" class="perspective-item">
+                            <h2 class="perspective-title">具身智能建造：让建造具备感知与行动</h2>
+                            <p class="blog-card-meta">2026-02-12</p>
+                            <p class="perspective-text" id="perspective-sensing-text"></p>
+                        </article>
+                    </div>
+                    <p style="margin-top: 18px; color: #909090; font-size: 12px; font-style: italic;">Personal perspectives, polished with AI.</p>
+                </section>
+
                 <section class="rs-section">
                     <h1 class="articletitle rs-heading">Travels</h1>
-                    
+
                     <!-- Map Section -->
                     <div class="map-container">
                         <div class="travel-layout">
@@ -247,15 +94,18 @@
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
     <script src="js/world_china.js"></script>
     <script>
-        // Back to top functionality
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > window.innerHeight) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
+        // Perspectives protected texts
+        const protectedTexts = {
+            'perspective-sensing-text': [20855,36523,26234,33021,24314,36896,30340,20851,38190,65292,19981,26159,35753,26426,22120,36827,20837,24037,22320,65292,32780,26159,35753,24863,30693,12289,20915,31574,19982,25191,34892,22312,26045,24037,20013,24418,25104,38381,29615,12290,27604,33258,21160,21270,35774,22791,26356,37325,35201,30340,65292,26159,25226,26045,24037,32463,39564,12289,26448,26009,21453,39304,21644,29616,22330,32422,26463,36716,21270,20026,26426,22120,21487,29702,35299,12289,21487,35843,25972,30340,34892,21160,33021,21147,12290,30495,27491,20540,24471,20851,27880,30340,65292,19981,26159,35774,22791,22810,20687,20154,65292,32780,26159,31995,32479,33021,21542,22312,22797,26434,24037,20917,19979,31283,23450,21028,26029,12289,21709,24212,19982,24314,36896,12290],
+            'perspective-distill-self-text': [24378,28872,24314,35758,24635,32467,25552,28860,33258,24049,30340,25216,33021,12289,21028,26029,21644,25104,29087,24037,20316,27969,65292,36716,21270,20026,65,73,21487,35843,29992,30340,34920,36798,12290,21487,20197,26356,24555,23436,25104,24037,20316,65292,20174,37325,22797,21171,21160,20013,35299,25918,20986,26469,65292,25226,26102,38388,30041,32473,25506,32034,12289,23398,20064,21644,26356,37325,35201,30340,38382,39064,12290]
+        };
+        Object.entries(protectedTexts).forEach(([id, codePoints]) => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = codePoints.map(codePoint => String.fromCodePoint(codePoint)).join('');
             }
         });
+
 
         // Photo Popup functionality
         const photoPopup = document.getElementById('photoPopup');

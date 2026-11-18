@@ -11,13 +11,11 @@
 <body>
     <div id="top"></div>
     <div class="container">
-        <header>
-            <table class="logo-table">
-                <tr>
-                    <td><img src="images/cctelogo.png" alt="土木与交通工程学院" height="50"></td>
-                    <td><img src="images/szu.jpg" alt="Shenzhen University" height="50"></td>
-                </tr>
-            </table>
+        <header class="site-banner">
+            <div class="banner-inner">
+                <p class="banner-kicker"><span class="banner-led"></span>College of Civil and Transportation Engineering &middot; Shenzhen University</p>
+                <div class="banner-title">Intelligent Construction &amp; Embodied Intelligence</div>
+            </div>
         </header>
 
         <div class="main-content">
@@ -41,8 +39,6 @@
                     <tr><td class="menu"><a href="patents.html">Patents</a></td></tr>
                     <tr><td class="menu"><a href="projects.html">Projects</a></td></tr>
                     <tr><td class="menu"><a href="people.html">People</a></td></tr>
-                    <tr><td class="menu"><a href="perspective.html">Perspectives</a></td></tr>
-
                     <tr><td class="menu"><a href="personal.html">Personal</a></td></tr>
                 </table>
             </nav>
@@ -71,25 +67,11 @@
             </main>
         </div>
         <footer>
-            <p class="foot">曹香鹏 2026 Designed with AI &copy; CAOXP</p>
+            <p class="foot">Xiangpeng CAO 2026 Designed with AI &copy; CAOXP</p>
         </footer>
     </div>
     <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
-    <script>
-        // 获取按钮元素
-        const backToTop = document.getElementById('backToTop');
-        
-        // 监听页面滚动
-        window.addEventListener('scroll', function() {
-            // 当页面滚动超过一个视窗高度时显示按钮
-            if (window.scrollY > window.innerHeight) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
-    </script>
     <script src="images/site.js"></script>
 </body>
 </html>
