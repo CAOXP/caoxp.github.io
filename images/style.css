@@ -107,7 +107,7 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 0 0 10px;
+    margin: 0;
     font-family: Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
@@ -125,21 +125,9 @@ header {
     animation: banner-led-pulse 2s ease-in-out infinite;
 }
 
-.banner-title {
-    font-family: "Times New Roman", sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-    letter-spacing: 0.02em;
-    color: var(--text-color);
-}
-
 @media (max-width: 768px) {
     .site-banner {
         padding: 18px 20px;
-    }
-
-    .banner-title {
-        font-size: 24px;
     }
 }
 
