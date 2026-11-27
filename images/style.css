@@ -973,14 +973,21 @@ h1.rs-heading.h2::before {
 }
 
 .rs-early img.uni-logo {
-    height: 20px;
+    height: 18px;
     width: auto;
     vertical-align: middle;
     margin-left: 6px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.rs-early a.uni-logo-link:hover img.uni-logo,
+.rs-early a.uni-logo-link:focus img.uni-logo {
+    opacity: 1;
 }
 
 .rs-early img.uni-logo-sm {
-    height: 14px;
+    height: 12.6px;
 }
 
 /* News / highlight list with leading date */
