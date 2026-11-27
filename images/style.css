@@ -977,7 +977,7 @@ h1.rs-heading.h2::before {
     width: auto;
     vertical-align: middle;
     margin-left: 6px;
-    opacity: 0.5;
+    opacity: 0.4;
     transition: opacity 0.2s;
 }
 
@@ -988,6 +988,19 @@ h1.rs-heading.h2::before {
 
 .rs-early img.uni-logo-sm {
     height: 12.6px;
+}
+
+.rs-news img.jour-logo {
+    height: 18px;
+    width: auto;
+    vertical-align: middle;
+    margin-left: 5px;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+}
+
+.rs-news li:hover img.jour-logo {
+    opacity: 1;
 }
 
 /* News / highlight list with leading date */
