@@ -1007,6 +1007,8 @@ h1.rs-heading.h2::before {
     color: #EE7700;
     font-weight: bold;
     margin-right: 8px;
+    display: inline-block;
+    min-width: 96px;
 }
 
 /* People rows */
