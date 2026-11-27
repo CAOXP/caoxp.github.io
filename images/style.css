@@ -972,6 +972,17 @@ h1.rs-heading.h2::before {
     text-decoration: none;
 }
 
+.rs-early img.uni-logo {
+    height: 20px;
+    width: auto;
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+.rs-early img.uni-logo-sm {
+    height: 14px;
+}
+
 /* News / highlight list with leading date */
 .rs-news {
     list-style: none;
